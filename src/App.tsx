@@ -2,15 +2,19 @@ import React, {useEffect, useMemo, useRef, useState} from 'react'
 import './App.css'
 import { useData } from './hooks/useData'
 import {
-  AmbientLight, BackSide, BoxGeometry, Camera,
-  DirectionalLight, Matrix4, Mesh,
+  AmbientLight,
+  BackSide, BoxGeometry, BufferGeometry, Camera, DirectionalLight,
+  Matrix4, Mesh, MeshBasicMaterial, MeshPhongMaterial, MeshStandardMaterial,
   PerspectiveCamera,
-  Scene, ShaderMaterial, TextureLoader,
+  Scene, ShaderMaterial, TextureLoader, Vector3,
   WebGLRenderer
 } from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {FRAGMENT_EQ_SHADER, VERTEX_EQ_SHADER} from './consts/shaders'
 import TestEnv from './assets/testEnv.jpeg'
+import {ThreeDeeData} from './contracts/ThreeDeeData'
+import {build} from './utils/builder';
+import {WORLD_MLT} from './consts/multipliers';
 
 interface IThreeInitializedObject {
   renderer: WebGLRenderer, scene: Scene, camera: Camera
@@ -33,31 +37,32 @@ const animate = (
   renderer.render(scene, camera)
 }
 
-const init = (canvas: HTMLCanvasElement|null) => {
-  if (!canvas) {
+const init = (canvas: HTMLCanvasElement|null, geometry: BufferGeometry) => {
+  if (!(canvas && geometry)) {
     return null
   }
   const textureLoader = new TextureLoader()
 
-  const camera = new PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.25, 16)
-  camera.position.set( 0, 1, 0 )
-  const scene = new Scene()
-  scene.add(new AmbientLight(0x505050))
+  const cameraPos = new Vector3(-260.2992 * WORLD_MLT, 0, +165.81119999999999 * WORLD_MLT)
 
-  const dirLight = new DirectionalLight( 0x55505a, 1)
-  dirLight.position.set(0, 3, 0)
+  const camera = new PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.25, 160)
+  camera.position.set(0, 1, 0)
+  const scene = new Scene()
+
+  scene.add(new AmbientLight(0x505050))
+  const dirLight = new DirectionalLight(0x55505a, 1)
+  dirLight.position.set(0, 0, 0)
 
   scene.add(dirLight)
+
 
   // Geometry
 
   const material = new ShaderMaterial( {
     uniforms: {
-      'map': { value: textureLoader.load(TestEnv) },
-      'cameraPos': { value: camera.position },
-      'transform': { value: new Matrix4() },
-      'zoom': { value: 1.0 },
-      'opacity': { value: 1.0 }
+      map: { value: textureLoader.load(TestEnv) },
+      center: { value: cameraPos },
+      angle: { value: (5 + 270) * Math.PI / 180.0 }
     },
     vertexShader: VERTEX_EQ_SHADER,
     fragmentShader: FRAGMENT_EQ_SHADER,
@@ -65,9 +70,7 @@ const init = (canvas: HTMLCanvasElement|null) => {
     transparent: true
   } )
 
-  const geometry = new BoxGeometry()
   const object = new Mesh(geometry, material)
-  object.castShadow = true
   scene.add(object)
 
   // Renderer
@@ -84,7 +87,7 @@ const init = (canvas: HTMLCanvasElement|null) => {
   // Controls
 
   const controls = new OrbitControls(camera, renderer.domElement)
-  controls.target.set( 0, 0, 0 )
+  controls.target.set(-cameraPos.x, cameraPos.y, -cameraPos.z)
   controls.update()
 
   return {
@@ -101,12 +104,19 @@ function App() {
   const data1 = useData({ name: '1' })
   console.log('data1: ', data1)
 
-  const data2 = useData({ name: '2' })
+  const data2 = useData<ThreeDeeData>({ name: '2' })
   console.log('data2: ', data2)
+  const { data: { rooms: [bedroom, living] = [] }  } = data2
+  const geometry = useMemo(() => build({
+    points: living?.corners.map(({ x, y }) => ({ x: y * WORLD_MLT, z: x * WORLD_MLT })) || [],
+    height: 6,
+    flip: false
+  }), [living])
+  console.log('geometry: ', geometry)
 
   const { current: canvas } = canvasRef
   console.log('canvas: ', canvas)
-  const threeInitialised = useMemo(() => init(canvas), [canvas])
+  const threeInitialised = useMemo(() => init(canvas, geometry), [canvas])
 
   useEffect(() => {
     if (animationState) {
