@@ -43,7 +43,7 @@ const init = (canvas: HTMLCanvasElement|null, geometry: BufferGeometry) => {
   }
   const textureLoader = new TextureLoader()
 
-  const cameraPos = new Vector3(-260.2992 * WORLD_MLT, 0, +165.81119999999999 * WORLD_MLT)
+  const cameraPos = new Vector3(-260.2992 * WORLD_MLT, 0, 165.81119999999999 * WORLD_MLT)
 
   const camera = new PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.25, 160)
   camera.position.set(0, 1, 0)
@@ -62,7 +62,7 @@ const init = (canvas: HTMLCanvasElement|null, geometry: BufferGeometry) => {
     uniforms: {
       map: { value: textureLoader.load(TestEnv) },
       center: { value: cameraPos },
-      angle: { value: (5 + 270) * Math.PI / 180.0 }
+      angle: { value: 5 * Math.PI / 180.0 }
     },
     vertexShader: VERTEX_EQ_SHADER,
     fragmentShader: FRAGMENT_EQ_SHADER,
@@ -87,7 +87,7 @@ const init = (canvas: HTMLCanvasElement|null, geometry: BufferGeometry) => {
   // Controls
 
   const controls = new OrbitControls(camera, renderer.domElement)
-  controls.target.set(-cameraPos.x, cameraPos.y, -cameraPos.z)
+  controls.target = cameraPos.clone().multiplyScalar(-1)
   controls.update()
 
   return {
@@ -109,7 +109,7 @@ function App() {
   const { data: { rooms: [bedroom, living] = [] }  } = data2
   const geometry = useMemo(() => build({
     points: living?.corners.map(({ x, y }) => ({ x: y * WORLD_MLT, z: x * WORLD_MLT })) || [],
-    height: 6,
+    height: 3,
     flip: false
   }), [living])
   console.log('geometry: ', geometry)
