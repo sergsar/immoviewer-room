@@ -1,91 +1,65 @@
-import {BufferGeometry, Float32BufferAttribute, Vector3} from "three"
+import {
+    BackSide,
+    Mesh,
+    ShaderMaterial,
+    TextureLoader,
+    Vector3
+} from 'three'
+import {ThreeDeeData} from '../contracts/three-dee-data';
+import {WORLD_MLT} from '../consts/multipliers';
+import {IRoom} from '../models/room';
+import {ContentData, Tour, TourRooms} from '../contracts/content-data';
+import {FRAGMENT_EQ_SHADER, VERTEX_EQ_SHADER} from '../consts/shaders';
+import {buildGeometry} from './geometry-builder';
 
-interface IBuilderParams {
-    points: Point[]
-    height: number
-    flip?: boolean
-}
+export const buildRooms = (
+    { rooms = [], cameras }: ThreeDeeData,
+    { tour: { rooms: tourRooms = {} as TourRooms } = {} as Tour }: ContentData
+): IRoom[] => {
+    const textureLoader = new TextureLoader()
+    textureLoader.crossOrigin = 'Anonymous'
 
-interface Point {
-    x: number
-    z: number
-}
+    return rooms.map(({ corners, interiorCorners, roomName }, index): IRoom|null => {
+        const roomsContent = Object.values(tourRooms)
+        const camera = cameras.find((item) => item.roomName === roomName)
+        const mapUrl = roomsContent.find((item) => item.name === roomName)?.url
 
-export const build = ({ points, height, flip }: IBuilderParams): BufferGeometry => {
-    const geometry = new BufferGeometry()
-    const positions = []
-    const top = height * 0.5
-    const bottom = -height * 0.5
-
-    const vertical = getVertical(points, top, bottom, flip)
-    const horizontalTop = getHorizontal(points, top, flip)
-    const horizontalBottom = getHorizontal(points, bottom, !flip)
-
-    positions.push(...vertical, ...horizontalTop, ...horizontalBottom)
-
-    const normals = buildNormals(positions)
-
-    geometry.setAttribute('position', new Float32BufferAttribute(positions, 3))
-    geometry.setAttribute('normal', new Float32BufferAttribute(normals, 3))
-
-    geometry.computeBoundingBox()
-
-    return geometry
-}
-
-const getVertical = (points: Point[], top: number, bottom: number, flip?: boolean): number[] => {
-    const vertical = []
-    for (let i = 0; i < points.length; i++) {
-        const start = points[i]
-        const end = points[(i + 1) % points.length]
-        let triangle1 = [start.x, bottom, start.z, end.x, bottom, end.z, start.x, top, start.z]
-        let triangle2 = [start.x, top, start.z, end.x, bottom, end.z, end.x, top, end.z]
-        if (flip) {
-            triangle1 = [start.x, bottom, start.z, start.x, top, start.z, end.x, bottom, end.z]
-            triangle2 = [start.x, top, start.z, end.x, top, end.z, end.x, bottom, end.z]
+        if (!(camera && mapUrl)) {
+            console.error(`insufficient data for room ${roomName}`)
+            return null
         }
-        vertical.push(...triangle1, ...triangle2)
-    }
-    return vertical
-}
+        const map = textureLoader.load(mapUrl)
+        const cameraPos = new Vector3(camera.y, 0, camera.x)
+            .multiplyScalar(WORLD_MLT)
+            .multiplyScalar(-1)
 
-const getHorizontal = (points: Point[], elevation: number, flip?: boolean): number[] => {
-    const horizontal = []
-    for (let i = 0; i < points.length - 2; i++) {
-        const pointA = points[0]
-        const pointB = points[i + 1]
-        const pointC = points[i + 2]
-        let triangle = [pointA.x, elevation, pointA.z, pointB.x, elevation, pointB.z, pointC.x, elevation, pointC.z]
-        if (flip) {
-            triangle = [pointA.x, elevation, pointA.z, pointC.x, elevation, pointC.z, pointB.x, elevation, pointB.z]
+        const material = new ShaderMaterial({
+            uniforms: {
+                map: { value: map },
+                center: { value: cameraPos },
+                angle: { value: camera.mergeAngle * Math.PI / 180.0 }
+            },
+            vertexShader: VERTEX_EQ_SHADER,
+            fragmentShader: FRAGMENT_EQ_SHADER,
+            side: BackSide,
+            transparent: true
+        })
+
+        const geometry = buildGeometry({
+            points: interiorCorners.map(({ x, y }) => ({ x: y * WORLD_MLT, z: x * WORLD_MLT })),
+            height: 3,
+            flip: false
+        })
+
+        const mesh = new Mesh(geometry, material)
+
+        return {
+            object: mesh,
+            name: roomName,
+            camera: {
+                position: cameraPos
+            }
         }
-        horizontal.push(...triangle)
-    }
-    return horizontal
-}
+    }).filter(Boolean) as IRoom[]
 
-const buildNormals = (positions: number[]): number[] => {
-    let normals = []
-    const pA = new Vector3()
-    const pB = new Vector3()
-    const pC = new Vector3()
-    const ba = new Vector3()
-    const ca = new Vector3()
-    let nx, ny, nz: number
-    let i = -1
-    while (i < positions.length - 1) {
-        pA.set(positions[++i], positions[++i], positions[++i])
-        pB.set(positions[++i], positions[++i], positions[++i])
-        pC.set(positions[++i], positions[++i], positions[++i])
-        ba.subVectors(pB, pA)
-        ca.subVectors(pC, pA)
-        ba.cross(ca).normalize()
-        nx = ba.x
-        ny = ba.y
-        nz = ba.z
-        normals.push(nx, ny, nz)
-        normals.push(nx, ny, nz)
-        normals.push(nx, ny, nz)
-    }
-    return normals
 }

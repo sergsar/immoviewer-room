@@ -28,23 +28,16 @@ export const FRAGMENT_EQ_SHADER = `
     void main() {
         float sine = sin(angle);
         float cosine = cos(angle);
-        vec3 positionRot = vec3(
+        vec3 positionRotate = vec3(
             vPosition.x * cosine - vPosition.z * sine,
             vPosition.y,
             vPosition.x * sine + vPosition.z * cosine
         );
-        
-        float x = positionRot.x;
-        float y = positionRot.y;
-        float z = positionRot.z;
-        float a = sqrt(1.0/(x * x +y * y + z * z));
-        x = a*x;
-        y = a*y;
-        z = a*z;
 
+        vec3 direction = normalize(positionRotate);
         vec2 sampleUV = vec2(
-            (atan(x, z) / PI + 1.0) * 0.5,
-            asin(y) / PI + 0.5
+            (atan(direction.x, direction.z) / PI + 1.0) * 0.5,
+            asin(direction.y) / PI + 0.5
         );
 
         gl_FragColor = texture2D(map, sampleUV);

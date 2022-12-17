@@ -1,0 +1,13 @@
+.room-list {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+}
+
+.room-list-button {
+    cursor: pointer;
+}
+
+.room-list-button.selected {
+    border: 1px solid blue;
+}
