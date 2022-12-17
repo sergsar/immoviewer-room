@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/immoviewer-room/static/css/main.306dfa1d.css",
-    "main.js": "/immoviewer-room/static/js/main.5201ca5b.js",
+    "main.js": "/immoviewer-room/static/js/main.b1b15bfb.js",
     "static/js/787.91328333.chunk.js": "/immoviewer-room/static/js/787.91328333.chunk.js",
     "index.html": "/immoviewer-room/index.html",
     "main.306dfa1d.css.map": "/immoviewer-room/static/css/main.306dfa1d.css.map",
-    "main.5201ca5b.js.map": "/immoviewer-room/static/js/main.5201ca5b.js.map",
+    "main.b1b15bfb.js.map": "/immoviewer-room/static/js/main.b1b15bfb.js.map",
     "787.91328333.chunk.js.map": "/immoviewer-room/static/js/787.91328333.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.306dfa1d.css",
-    "static/js/main.5201ca5b.js"
+    "static/js/main.b1b15bfb.js"
   ]
 }
