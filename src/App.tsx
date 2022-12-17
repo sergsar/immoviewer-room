@@ -31,13 +31,20 @@ function App() {
 
     return (
         <div className="App">
-          <RoomsList
-              data={contentData}
-              roomClick={setRoomName}
-              selected={roomName}
-              className="room-list"
-          />
-          <Scene data={data} className="scene" />
+            <header className="header">
+                <RoomsList
+                    data={contentData}
+                    roomClick={setRoomName}
+                    selected={roomName}
+                />
+                <a
+                    href="https://github.com/sergsar/immoviewer-room"
+                    target="_blank"
+                >
+                    https://github.com/sergsar/immoviewer-room
+                </a>
+            </header>
+            <Scene data={data} className="scene" />
         </div>
     )
 }

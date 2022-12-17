@@ -6,7 +6,7 @@ import clsx from 'clsx';
 type RoomsListProps = {
     data: ContentData
     selected: string
-    className: string
+    className?: string
     roomClick: (name: string) => void
 }
 
