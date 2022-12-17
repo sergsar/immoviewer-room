@@ -1,0 +1,41 @@
+{
+  "tour": {
+    "id": "123",
+    "name": "modern_tour",
+    "activeRoom": "srv_2gil2141r5.JPG",
+    "rooms": {
+      "srv_2gil2141r5.JPG": {
+        "type": "PANORAMA",
+        "name": "Bedroom",
+        "filename": "srv_2gil2141r5.JPG",
+        "url": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/2688-images/srv_2gil2141r5.JPG?v=1521646584636",
+        "urlMobile": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/1606-images/srv_2gil2141r5.JPG?v=1521646584636",
+        "thumbnail": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/150-images/srv_2gil2141r5.JPG?v=1521646584636"
+      },
+      "srv_8u1z4dn0l2.JPG": {
+        "type": "PANORAMA",
+        "name": "Kitchen",
+        "filename": "srv_8u1z4dn0l2.JPG",
+        "url": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/2688-images/srv_8u1z4dn0l2.JPG?v=1521646604378",
+        "urlMobile": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/1606-images/srv_8u1z4dn0l2.JPG?v=1521646604378",
+        "thumbnail": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/150-images/srv_8u1z4dn0l2.JPG?v=1521646604378"
+      },
+      "srv_50wz90f916.JPG": {
+        "type": "PANORAMA",
+        "name": "Living",
+        "filename": "srv_50wz90f916.JPG",
+        "url": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/2688-images/srv_50wz90f916.JPG?v=1521646617596",
+        "urlMobile": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/1606-images/srv_50wz90f916.JPG?v=1521646617596",
+        "thumbnail": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/150-images/srv_50wz90f916.JPG?v=1521646617596"
+      },
+      "srv_83m8ae2547.JPG": {
+        "type": "PANORAMA",
+        "name": "Closed Room",
+        "filename": "srv_83m8ae2547.JPG",
+        "url": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/2688-images/srv_83m8ae2547.JPG?v=1522306149478",
+        "urlMobile": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/1606-images/srv_83m8ae2547.JPG?v=1522306149478",
+        "thumbnail": "https://img.immoviewer.com/items/mnikitin/5ab27bc54cedfd0053a66a41/Tour/150-images/srv_83m8ae2547.JPG?v=1522306149478"
+      }
+    }
+  }
+}

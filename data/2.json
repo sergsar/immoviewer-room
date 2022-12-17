@@ -1,0 +1,1444 @@
+{
+  "walls": [
+    {
+      "id": "65939af8-f54c-4558-7ef5-e07846d3d68f",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.8m",
+      "backEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "5da6b453-7e61-aa27-fa62-0265d84afc0f",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.6m",
+      "backEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "100b08dc-9852-8f72-fb99-4ebbe5c372f8",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.8m",
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "1.6m",
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "1.0m",
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.5m",
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "4036fead-4793-46c3-f976-68a88e423521",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "5.2m",
+      "frontEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "482b3491-162d-0aa7-79a8-4988aa35e9f6",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "3.2m",
+      "frontEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "a0431fcd-d59e-9220-ca01-3f8920038ead",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "3.6m",
+      "frontEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "393ebc53-c71c-c251-d5d3-2931a458fcdb",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.5m",
+      "backEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "a6f6c70a-d664-658e-c815-8f31ec09da3d",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.2m",
+      "backEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "fc646cca-0822-daaf-bed3-a23876337c17",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.5m",
+      "backEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "6bbdfeb9-0925-39b4-eef2-e622340e433f",
+      "thickness": 15,
+      "bearing": 3,
+      "height": null,
+      "lengthFormatted": "2.2m",
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "1d6f9e75-3c4a-64dd-5104-ab61757e9bf1",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "2.5m",
+      "frontEdge": null,
+      "orphan": false,
+      "hovered": false
+    },
+    {
+      "id": "f4372c1b-8935-15e3-1ee6-8f6557c0a7dc",
+      "thickness": 15,
+      "bearing": 0,
+      "height": null,
+      "lengthFormatted": "1.0m",
+      "frontEdge": null,
+      "orphan": false,
+      "hovered": false
+    }
+  ],
+  "corners": [
+    {
+      "id": "{\"x\":200.61410457576147,\"y\":133.11359043087862}",
+      "x": 167.01802160842922,
+      "y": -189.8476657149123,
+      "wallStarts": [
+        {
+          "id": "5da6b453-7e61-aa27-fa62-0265d84afc0f",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.6m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "65939af8-f54c-4558-7ef5-e07846d3d68f",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.8m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "{\"x\":-81.77440657342821,\"y\":-106.07489316270248}",
+      "x": -115.4080607140259,
+      "y": 67.96996433824869,
+      "wallStarts": [
+        {
+          "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "1.6m",
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "100b08dc-9852-8f72-fb99-4ebbe5c372f8",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.8m",
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "04e43f15-b90e-ed68-46a4-51a4e70a9012",
+      "x": -115.4080607140259,
+      "y": -92.45599999999992,
+      "wallStarts": [
+        {
+          "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "1.0m",
+          "orphan": false,
+          "hovered": false
+        },
+        {
+          "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "1.6m",
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "c34957b6-6014-9c93-1785-4b86baadaaf7",
+      "x": -369.21439999999984,
+      "y": 426.9232000000003,
+      "wallStarts": [
+        {
+          "id": "482b3491-162d-0aa7-79a8-4988aa35e9f6",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "3.2m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "4036fead-4793-46c3-f976-68a88e423521",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "5.2m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "17bd3886-467e-50a8-074d-1c7892517551",
+      "x": 167.01802160842922,
+      "y": 67.96996433824869,
+      "wallStarts": [
+        {
+          "id": "100b08dc-9852-8f72-fb99-4ebbe5c372f8",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.8m",
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "5da6b453-7e61-aa27-fa62-0265d84afc0f",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.6m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        },
+        {
+          "id": "a0431fcd-d59e-9220-ca01-3f8920038ead",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "3.6m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "40b8872d-2878-714a-de5e-7de8d0471189",
+      "x": 167.01802160842922,
+      "y": 426.9232000000003,
+      "wallStarts": [
+        {
+          "id": "a0431fcd-d59e-9220-ca01-3f8920038ead",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "3.6m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        },
+        {
+          "id": "393ebc53-c71c-c251-d5d3-2931a458fcdb",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "6bbdfeb9-0925-39b4-eef2-e622340e433f",
+          "thickness": 15,
+          "bearing": 3,
+          "height": null,
+          "lengthFormatted": "2.2m",
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "9a031389-e046-d996-335f-6393d2c75e26",
+      "x": 167.01802160842922,
+      "y": 677.2656000000002,
+      "wallStarts": [
+        {
+          "id": "a6f6c70a-d664-658e-c815-8f31ec09da3d",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.2m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "393ebc53-c71c-c251-d5d3-2931a458fcdb",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "aad49a76-d4bd-4088-9a6d-062c2cb7268b",
+      "x": -53.847999999999956,
+      "y": 677.2656000000002,
+      "wallStarts": [
+        {
+          "id": "fc646cca-0822-daaf-bed3-a23876337c17",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "a6f6c70a-d664-658e-c815-8f31ec09da3d",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.2m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "d88407d9-ef98-6b8f-d80f-e06b737bf2f4",
+      "x": -53.847999999999956,
+      "y": 426.9232000000003,
+      "wallStarts": [
+        {
+          "id": "6bbdfeb9-0925-39b4-eef2-e622340e433f",
+          "thickness": 15,
+          "bearing": 3,
+          "height": null,
+          "lengthFormatted": "2.2m",
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "482b3491-162d-0aa7-79a8-4988aa35e9f6",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "3.2m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        },
+        {
+          "id": "fc646cca-0822-daaf-bed3-a23876337c17",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "9a405c04-c7d7-17b9-f590-fc9adde1b77c",
+      "x": -115.4080607140259,
+      "y": -189.8476657149123,
+      "wallStarts": [
+        {
+          "id": "65939af8-f54c-4558-7ef5-e07846d3d68f",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.8m",
+          "backEdge": null,
+          "orphan": false,
+          "hovered": false
+        },
+        {
+          "id": "1d6f9e75-3c4a-64dd-5104-ab61757e9bf1",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "1.0m",
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "a5bdc162-f4bf-d972-d5c2-ca97a8da7eb4",
+      "x": -369.21439999999984,
+      "y": -189.8476657149123,
+      "wallStarts": [
+        {
+          "id": "f4372c1b-8935-15e3-1ee6-8f6557c0a7dc",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "1.0m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "1d6f9e75-3c4a-64dd-5104-ab61757e9bf1",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    },
+    {
+      "id": "82930e54-7be2-df40-96ae-38bea6cbe94a",
+      "x": -369.21439999999984,
+      "y": -92.45599999999992,
+      "wallStarts": [
+        {
+          "id": "4036fead-4793-46c3-f976-68a88e423521",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "5.2m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ],
+      "wallEnds": [
+        {
+          "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "2.5m",
+          "orphan": false,
+          "hovered": false
+        },
+        {
+          "id": "f4372c1b-8935-15e3-1ee6-8f6557c0a7dc",
+          "thickness": 15,
+          "bearing": 0,
+          "height": null,
+          "lengthFormatted": "1.0m",
+          "frontEdge": null,
+          "orphan": false,
+          "hovered": false
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "corners": [
+        {
+          "id": "{\"x\":200.61410457576147,\"y\":133.11359043087862}",
+          "x": 167.01802160842922,
+          "y": -189.8476657149123,
+          "wallStarts": [
+            {
+              "id": "5da6b453-7e61-aa27-fa62-0265d84afc0f",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.6m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "65939af8-f54c-4558-7ef5-e07846d3d68f",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.8m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "17bd3886-467e-50a8-074d-1c7892517551",
+          "x": 167.01802160842922,
+          "y": 67.96996433824869,
+          "wallStarts": [
+            {
+              "id": "100b08dc-9852-8f72-fb99-4ebbe5c372f8",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.8m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "5da6b453-7e61-aa27-fa62-0265d84afc0f",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.6m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "a0431fcd-d59e-9220-ca01-3f8920038ead",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "3.6m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "{\"x\":-81.77440657342821,\"y\":-106.07489316270248}",
+          "x": -115.4080607140259,
+          "y": 67.96996433824869,
+          "wallStarts": [
+            {
+              "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.6m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "100b08dc-9852-8f72-fb99-4ebbe5c372f8",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.8m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "04e43f15-b90e-ed68-46a4-51a4e70a9012",
+          "x": -115.4080607140259,
+          "y": -92.45599999999992,
+          "wallStarts": [
+            {
+              "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.6m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "9a405c04-c7d7-17b9-f590-fc9adde1b77c",
+          "x": -115.4080607140259,
+          "y": -189.8476657149123,
+          "wallStarts": [
+            {
+              "id": "65939af8-f54c-4558-7ef5-e07846d3d68f",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.8m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "1d6f9e75-3c4a-64dd-5104-ab61757e9bf1",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        }
+      ],
+      "interiorCorners": [
+        {
+          "x": 159.51802160842922,
+          "y": -182.3476657149123
+        },
+        {
+          "x": 159.51802160842922,
+          "y": 60.46996433824869
+        },
+        {
+          "x": -107.9080607140259,
+          "y": 60.46996433824869
+        },
+        {
+          "x": -107.9080607140259,
+          "y": -92.45599999999992
+        },
+        {
+          "x": -107.9080607140259,
+          "y": -182.3476657149123
+        }
+      ],
+      "roomName": "Bedroom"
+    },
+    {
+      "corners": [
+        {
+          "id": "{\"x\":-81.77440657342821,\"y\":-106.07489316270248}",
+          "x": -115.4080607140259,
+          "y": 67.96996433824869,
+          "wallStarts": [
+            {
+              "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.6m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "100b08dc-9852-8f72-fb99-4ebbe5c372f8",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.8m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "17bd3886-467e-50a8-074d-1c7892517551",
+          "x": 167.01802160842922,
+          "y": 67.96996433824869,
+          "wallStarts": [
+            {
+              "id": "100b08dc-9852-8f72-fb99-4ebbe5c372f8",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.8m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "5da6b453-7e61-aa27-fa62-0265d84afc0f",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.6m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "a0431fcd-d59e-9220-ca01-3f8920038ead",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "3.6m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "40b8872d-2878-714a-de5e-7de8d0471189",
+          "x": 167.01802160842922,
+          "y": 426.9232000000003,
+          "wallStarts": [
+            {
+              "id": "a0431fcd-d59e-9220-ca01-3f8920038ead",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "3.6m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "393ebc53-c71c-c251-d5d3-2931a458fcdb",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "6bbdfeb9-0925-39b4-eef2-e622340e433f",
+              "thickness": 15,
+              "bearing": 3,
+              "height": null,
+              "lengthFormatted": "2.2m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "d88407d9-ef98-6b8f-d80f-e06b737bf2f4",
+          "x": -53.847999999999956,
+          "y": 426.9232000000003,
+          "wallStarts": [
+            {
+              "id": "6bbdfeb9-0925-39b4-eef2-e622340e433f",
+              "thickness": 15,
+              "bearing": 3,
+              "height": null,
+              "lengthFormatted": "2.2m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "482b3491-162d-0aa7-79a8-4988aa35e9f6",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "3.2m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "fc646cca-0822-daaf-bed3-a23876337c17",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "c34957b6-6014-9c93-1785-4b86baadaaf7",
+          "x": -369.21439999999984,
+          "y": 426.9232000000003,
+          "wallStarts": [
+            {
+              "id": "482b3491-162d-0aa7-79a8-4988aa35e9f6",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "3.2m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "4036fead-4793-46c3-f976-68a88e423521",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "5.2m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "82930e54-7be2-df40-96ae-38bea6cbe94a",
+          "x": -369.21439999999984,
+          "y": -92.45599999999992,
+          "wallStarts": [
+            {
+              "id": "4036fead-4793-46c3-f976-68a88e423521",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "5.2m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "f4372c1b-8935-15e3-1ee6-8f6557c0a7dc",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "04e43f15-b90e-ed68-46a4-51a4e70a9012",
+          "x": -115.4080607140259,
+          "y": -92.45599999999992,
+          "wallStarts": [
+            {
+              "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.6m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        }
+      ],
+      "interiorCorners": [
+        {
+          "x": -122.9080607140259,
+          "y": 75.46996433824869
+        },
+        {
+          "x": 159.51802160842922,
+          "y": 75.46996433824869
+        },
+        {
+          "x": 164.51802160842922,
+          "y": 424.4232000000003
+        },
+        {
+          "x": -53.847999999999956,
+          "y": 419.4232000000003
+        },
+        {
+          "x": -361.71439999999984,
+          "y": 419.4232000000003
+        },
+        {
+          "x": -361.71439999999984,
+          "y": -84.95599999999992
+        },
+        {
+          "x": -122.9080607140259,
+          "y": -84.95599999999992
+        }
+      ],
+      "roomName": "Living"
+    },
+    {
+      "corners": [
+        {
+          "id": "04e43f15-b90e-ed68-46a4-51a4e70a9012",
+          "x": -115.4080607140259,
+          "y": -92.45599999999992,
+          "wallStarts": [
+            {
+              "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "6740bad8-df73-e308-3f1c-afc12ca59b28",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.6m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "82930e54-7be2-df40-96ae-38bea6cbe94a",
+          "x": -369.21439999999984,
+          "y": -92.45599999999992,
+          "wallStarts": [
+            {
+              "id": "4036fead-4793-46c3-f976-68a88e423521",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "5.2m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "170bf801-cf5b-38bc-eee0-43a0e5c01e7c",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "f4372c1b-8935-15e3-1ee6-8f6557c0a7dc",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "a5bdc162-f4bf-d972-d5c2-ca97a8da7eb4",
+          "x": -369.21439999999984,
+          "y": -189.8476657149123,
+          "wallStarts": [
+            {
+              "id": "f4372c1b-8935-15e3-1ee6-8f6557c0a7dc",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "1d6f9e75-3c4a-64dd-5104-ab61757e9bf1",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "9a405c04-c7d7-17b9-f590-fc9adde1b77c",
+          "x": -115.4080607140259,
+          "y": -189.8476657149123,
+          "wallStarts": [
+            {
+              "id": "65939af8-f54c-4558-7ef5-e07846d3d68f",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.8m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "1d6f9e75-3c4a-64dd-5104-ab61757e9bf1",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "a3fb9db7-fc40-52a4-134f-78884b770f5a",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "1.0m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        }
+      ],
+      "interiorCorners": [
+        {
+          "x": -122.9080607140259,
+          "y": -99.95599999999992
+        },
+        {
+          "x": -361.71439999999984,
+          "y": -99.95599999999992
+        },
+        {
+          "x": -361.71439999999984,
+          "y": -182.3476657149123
+        },
+        {
+          "x": -122.9080607140259,
+          "y": -182.3476657149123
+        }
+      ],
+      "roomName": "Closed Room"
+    },
+    {
+      "corners": [
+        {
+          "id": "40b8872d-2878-714a-de5e-7de8d0471189",
+          "x": 167.01802160842922,
+          "y": 426.9232000000003,
+          "wallStarts": [
+            {
+              "id": "a0431fcd-d59e-9220-ca01-3f8920038ead",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "3.6m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "393ebc53-c71c-c251-d5d3-2931a458fcdb",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "6bbdfeb9-0925-39b4-eef2-e622340e433f",
+              "thickness": 15,
+              "bearing": 3,
+              "height": null,
+              "lengthFormatted": "2.2m",
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "9a031389-e046-d996-335f-6393d2c75e26",
+          "x": 167.01802160842922,
+          "y": 677.2656000000002,
+          "wallStarts": [
+            {
+              "id": "a6f6c70a-d664-658e-c815-8f31ec09da3d",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.2m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "393ebc53-c71c-c251-d5d3-2931a458fcdb",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "aad49a76-d4bd-4088-9a6d-062c2cb7268b",
+          "x": -53.847999999999956,
+          "y": 677.2656000000002,
+          "wallStarts": [
+            {
+              "id": "fc646cca-0822-daaf-bed3-a23876337c17",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "a6f6c70a-d664-658e-c815-8f31ec09da3d",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.2m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        },
+        {
+          "id": "d88407d9-ef98-6b8f-d80f-e06b737bf2f4",
+          "x": -53.847999999999956,
+          "y": 426.9232000000003,
+          "wallStarts": [
+            {
+              "id": "6bbdfeb9-0925-39b4-eef2-e622340e433f",
+              "thickness": 15,
+              "bearing": 3,
+              "height": null,
+              "lengthFormatted": "2.2m",
+              "orphan": false,
+              "hovered": false
+            }
+          ],
+          "wallEnds": [
+            {
+              "id": "482b3491-162d-0aa7-79a8-4988aa35e9f6",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "3.2m",
+              "frontEdge": null,
+              "orphan": false,
+              "hovered": false
+            },
+            {
+              "id": "fc646cca-0822-daaf-bed3-a23876337c17",
+              "thickness": 15,
+              "bearing": 0,
+              "height": null,
+              "lengthFormatted": "2.5m",
+              "backEdge": null,
+              "orphan": false,
+              "hovered": false
+            }
+          ]
+        }
+      ],
+      "interiorCorners": [
+        {
+          "x": 159.51802160842922,
+          "y": 434.4232000000003
+        },
+        {
+          "x": 159.51802160842922,
+          "y": 669.7656000000002
+        },
+        {
+          "x": -46.347999999999956,
+          "y": 669.7656000000002
+        },
+        {
+          "x": -51.347999999999956,
+          "y": 429.4232000000003
+        }
+      ],
+      "roomName": "Kitchen"
+    }
+  ],
+  "cameras": [
+    {
+      "id": "srv_2gil2141r5.JPG",
+      "x": 0,
+      "y": 5.486400000000003,
+      "mergeAngle": -80.86704043944846,
+      "angle": -132.66607668149808,
+      "roomName": "Bedroom",
+      "isActive": true,
+      "highlighted": false,
+      "visibleName": ""
+    },
+    {
+      "id": "srv_50wz90f916.JPG",
+      "x": -165.81119999999999,
+      "y": 260.2992,
+      "mergeAngle": 5,
+      "angle": 5,
+      "roomName": "Living",
+      "isActive": false,
+      "isAddedManually": false,
+      "highlighted": false,
+      "visibleName": "Living"
+    },
+    {
+      "id": "srv_8u1z4dn0l2.JPG",
+      "x": 58.52159999999992,
+      "y": 493.1664,
+      "mergeAngle": 94,
+      "angle": 94,
+      "roomName": "Kitchen",
+      "isActive": false,
+      "isAddedManually": false,
+      "highlighted": false,
+      "visibleName": "Kitchen"
+    },
+    {
+      "id": "srv_83m8ae2547.JPG",
+      "x": -132.89280000000008,
+      "y": -144.47520000000003,
+      "mergeAngle": 0,
+      "angle": 0.8016977810815833,
+      "roomName": "Closed Room",
+      "isActive": false,
+      "isAddedManually": false,
+      "highlighted": false,
+      "visibleName": "Closed Room"
+    }
+  ],
+  "placements": {
+    "Bedroom": {
+      "id": "370d2146-516d-a485-e897-e6d112ad4fbe",
+      "roomName": "Bedroom",
+      "type": 0,
+      "visibleName": "Bedroom",
+      "visibleNamePosition": null,
+      "isRoomNameShown": true,
+      "areDimensionsShown": false,
+      "dimensionIndex": 0,
+      "dimensionsCache": []
+    },
+    "Living": {
+      "id": "b6b7270d-d8d7-c800-836f-69a35daa6f7c",
+      "roomName": "Living",
+      "type": 0,
+      "visibleName": "Living",
+      "visibleNamePosition": null,
+      "isRoomNameShown": true,
+      "areDimensionsShown": false,
+      "dimensionIndex": 1,
+      "dimensionsCache": []
+    },
+    "Kitchen": {
+      "id": "8d074697-6b35-9a51-bba2-6bee02df08c0",
+      "roomName": "Kitchen",
+      "type": 0,
+      "visibleName": "Kitchen",
+      "visibleNamePosition": {
+        "x": 55.879999999999995,
+        "y": 565.9119999999999
+      },
+      "isRoomNameShown": true,
+      "areDimensionsShown": false,
+      "dimensionIndex": 1,
+      "dimensionsCache": []
+    },
+    "Closed Room": {
+      "id": "072eb388-2b30-0f14-0cbb-9817127d3f88",
+      "roomName": "Closed Room",
+      "type": 0,
+      "visibleName": "Closed Room",
+      "visibleNamePosition": null,
+      "isRoomNameShown": true,
+      "areDimensionsShown": false,
+      "dimensionIndex": 1,
+      "dimensionsCache": []
+    }
+  }
+}
