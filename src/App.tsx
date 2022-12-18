@@ -10,10 +10,7 @@ import {SceneData} from './models/scene-data';
 
 function App() {
     const { data: contentData} = useData<ContentData>({ name: '1' })
-    console.log('contentData: ', contentData)
-
     const { data: threeDeeData} = useData<ThreeDeeData>({ name: '2' })
-    console.log('threeDeeData: ', threeDeeData)
 
     const [roomName, setRoomName] = useState('')
 
@@ -39,7 +36,7 @@ function App() {
                 />
                 <a
                     href="https://github.com/sergsar/immoviewer-room"
-                    target="_blank"
+                    target="_blank" rel="noreferrer"
                 >
                     https://github.com/sergsar/immoviewer-room
                 </a>

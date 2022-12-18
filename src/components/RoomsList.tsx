@@ -17,6 +17,16 @@ export const RoomsList: React.FC<RoomsListProps> = ({ data, roomClick, selected,
     }, [data])
     return  (
         <div className={clsx('room-list', className)}>
+            <button
+                onClick={() => roomClick('Top')}
+                className={clsx(
+                    'room-list-button',
+                    'top',
+                    selected === 'Top' && 'selected'
+                )}
+            >
+                Top
+            </button>
             {rooms.map(({ name }) =>
                 <button
                     className={clsx(

@@ -18,6 +18,13 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+@media(max-width: 900px) {
+  .App .header {
+    gap: 8px;
+    flex-direction: column-reverse;
+  }
+}
+
 .App [href] {
   color: white;
 }

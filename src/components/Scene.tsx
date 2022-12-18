@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react'
-import {buildRooms} from '../utils/builder'
-import {animateScene, initThreeScene} from '../utils/scene'
+import {buildFlat} from '../utils/builder'
+import {initThreeScene} from '../utils/scene'
 import {IThreeSetup} from '../models/three-setup'
 import {SceneData} from '../models/scene-data'
 
@@ -13,7 +13,7 @@ const play = (
     setup: IThreeSetup
 ) => {
     requestAnimationFrame( () => play(setup))
-    animateScene(setup)
+    setup.animate()
 }
 
 export const Scene: React.FC<SceneProps> = ({ data, className }) => {
@@ -23,11 +23,11 @@ export const Scene: React.FC<SceneProps> = ({ data, className }) => {
 
     const { threeDeeData, contentData, activeRoom } = data
 
-    const rooms = useMemo(() => {
+    const flat = useMemo(() => {
         if (!(threeDeeData && contentData)) {
-            return []
+            return null
         }
-        return buildRooms(threeDeeData, contentData)
+        return buildFlat(threeDeeData, contentData)
     }, [threeDeeData, contentData])
 
     const { current: canvas } = canvasRef
@@ -37,17 +37,28 @@ export const Scene: React.FC<SceneProps> = ({ data, className }) => {
             if (scene) {
                 return
             }
-            if (!(canvas && rooms.length && activeRoom)) {
+            if (!(canvas && flat?.rooms.length && flat?.exterior.length && activeRoom)) {
                 return
             }
-            const threeScene = initThreeScene(canvas, rooms, activeRoom)
+            const threeScene = initThreeScene(canvas, flat, activeRoom)
             setScene(threeScene)
             play(threeScene)
         },
-        [canvas, rooms, activeRoom, scene]
+        [canvas, flat, activeRoom, scene]
     )
 
     useEffect(() => scene?.changeRoom(activeRoom), [activeRoom])
+
+    useEffect(() => {
+        console.warn('mount scene')
+        // Here the component will mount
+        return () => {
+            console.warn('unmount scene')
+            // Here the component will unmount
+            scene?.dispose()
+            setScene(undefined)
+        }
+    }, [])
 
     return (
         <div className={className}>

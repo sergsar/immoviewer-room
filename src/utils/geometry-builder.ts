@@ -1,4 +1,5 @@
 import {BufferGeometry, Float32BufferAttribute, Vector3} from 'three';
+import {Point} from '../models/geometry-builder';
 
 interface IGeometryBuilderParams {
     points: Point[]
@@ -6,9 +7,11 @@ interface IGeometryBuilderParams {
     flip?: boolean
 }
 
-interface Point {
-    x: number
-    z: number
+interface IGeometryExteriorBuilderParams {
+    points: Point[]
+    interiorPoints: Point[]
+    height: number
+    flip?: boolean
 }
 
 export const buildGeometry = ({ points, height, flip }: IGeometryBuilderParams): BufferGeometry => {
@@ -19,6 +22,30 @@ export const buildGeometry = ({ points, height, flip }: IGeometryBuilderParams):
 
     const vertical = getVertical(points, top, bottom, flip)
     const horizontalTop = getHorizontal(points, top, flip)
+    const horizontalBottom = getHorizontal(points, bottom, !flip)
+
+    positions.push(...vertical, ...horizontalTop, ...horizontalBottom)
+
+    const normals = buildNormals(positions)
+
+    geometry.setAttribute('position', new Float32BufferAttribute(positions, 3))
+    geometry.setAttribute('normal', new Float32BufferAttribute(normals, 3))
+
+    geometry.computeBoundingBox()
+
+    return geometry
+}
+
+export const buildExteriorGeometry = (
+    { points, interiorPoints, height, flip }: IGeometryExteriorBuilderParams
+): BufferGeometry => {
+    const geometry = new BufferGeometry()
+    const positions = []
+    const top = height * 0.5
+    const bottom = -height * 0.5
+
+    const vertical = getVertical(points, top, bottom, flip)
+    const horizontalTop = getHorizontalBorder(points, interiorPoints, top, flip)
     const horizontalBottom = getHorizontal(points, bottom, !flip)
 
     positions.push(...vertical, ...horizontalTop, ...horizontalBottom)
@@ -60,6 +87,25 @@ const getHorizontal = (points: Point[], elevation: number, flip?: boolean): numb
             triangle = [pointA.x, elevation, pointA.z, pointC.x, elevation, pointC.z, pointB.x, elevation, pointB.z]
         }
         horizontal.push(...triangle)
+    }
+    return horizontal
+}
+
+const getHorizontalBorder = (points: Point[], interiorPoints: Point[], elevation: number, flip?: boolean): number[] => {
+    const horizontal: number[] = []
+    for (let i = 0; i < points.length; i++) {
+        const startOut = points[i]
+        const startIn = interiorPoints[i]
+        const endOut = points[(i + 1) % points.length]
+        const endIn = interiorPoints[(i + 1) % points.length]
+
+        let triangle1 = [startOut.x, elevation, startOut.z, endOut.x, elevation, endOut.z, startIn.x, elevation, startIn.z]
+        let triangle2 = [startIn.x, elevation, startIn.z, endOut.x, elevation, endOut.z, endIn.x, elevation, endIn.z]
+        if (flip) {
+            triangle1 = [startOut.x, elevation, startOut.z, startIn.x, elevation, startIn.z, endOut.x, elevation, endOut.z]
+            triangle2 = [startIn.x, elevation, startIn.z, endIn.x, elevation, endIn.z, endOut.x, elevation, endOut.z]
+        }
+        horizontal.push(...triangle1, ...triangle2)
     }
     return horizontal
 }

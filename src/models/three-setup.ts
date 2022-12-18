@@ -1,8 +1,6 @@
-import {Camera, Scene, WebGLRenderer} from 'three';
 
 export interface IThreeSetup {
-    renderer: WebGLRenderer
-    scene: Scene
-    camera: Camera
+    animate: () => void
     changeRoom: (name: string) => void
+    dispose: () => void
 }

@@ -7,6 +7,10 @@
     cursor: pointer;
 }
 
+.room-list-button.top {
+    margin-right: 16px;
+}
+
 .room-list-button.selected {
-    border: 1px solid blue;
+    border: 2px solid blue;
 }
