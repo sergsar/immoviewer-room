@@ -1,33 +1,20 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {buildFlat} from '../utils/builder'
-import {SceneData} from '../models/scene-data'
-import {SceneSetup} from "../classes/scene-setup";
+import {AppData} from '../models/app-data'
+import {SceneSetup} from '../classes/scene-setup';
 
 type SceneProps = {
-    data: SceneData,
+    data: AppData,
+    selected: string,
     className: string
 }
 
-const play = (
-    setup: SceneSetup
-) => {
-    requestAnimationFrame( () => play(setup))
-    setup.animate()
-}
-
-export const Scene: React.FC<SceneProps> = ({ data, className }) => {
+export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
     const [scene, setScene] = useState<SceneSetup|undefined>()
 
     const canvasRef = useRef(null)
 
-    const { threeDeeData, contentData, activeRoom } = data
-
-    const flat = useMemo(() => {
-        if (!(threeDeeData && contentData)) {
-            return null
-        }
-        return buildFlat(threeDeeData, contentData)
-    }, [threeDeeData, contentData])
+    const { threeDeeData, contentData } = data
 
     const { current: canvas } = canvasRef
 
@@ -36,18 +23,19 @@ export const Scene: React.FC<SceneProps> = ({ data, className }) => {
             if (scene) {
                 return
             }
-            if (!(canvas && flat?.rooms.length && flat?.exterior.length && activeRoom)) {
+            if (!(canvas && selected)) {
                 return
             }
-            const threeScene = new SceneSetup(canvas)// initThreeScene(canvas, flat, activeRoom)
+            const threeScene = new SceneSetup(canvas)
+            const flat = buildFlat(threeDeeData, contentData)
             threeScene.setFlat(flat)
+            threeScene.switchCamera(selected)
             setScene(threeScene)
-            play(threeScene)
         },
-        [canvas, flat, activeRoom, scene]
+        [canvas, selected, scene]
     )
 
-    useEffect(() => scene?.switchCamera(activeRoom), [activeRoom])
+    useEffect(() => scene?.switchCamera(selected), [selected])
 
     useEffect(() => {
         console.warn('mount scene')

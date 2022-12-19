@@ -1,47 +1,41 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css'
-import { useData } from './hooks/use-data'
-import {ThreeDeeData} from './contracts/three-dee-data'
-import {ContentData} from './contracts/content-data';
 import {Scene} from './components/Scene';
 import {RoomsList} from './components/RoomsList';
-import {retrieveActiveRoomName} from './utils/contand-data';
-import {SceneData} from './models/scene-data';
+import {useApData} from "./hooks/use-ap-data";
 
 function App() {
-    const { data: contentData} = useData<ContentData>({ name: '1' })
-    const { data: threeDeeData} = useData<ThreeDeeData>({ name: '2' })
-
     const [roomName, setRoomName] = useState('')
 
-    const data: SceneData = useMemo(
-        () => ({ threeDeeData, contentData, activeRoom: roomName }),
-        [threeDeeData, contentData, roomName]
-    )
+    const { data } = useApData()
 
     useEffect(
-        () => setRoomName(
-            retrieveActiveRoomName(contentData)
-        ),
-        [contentData]
+        () => {
+            data?.activeRoom && setRoomName(data.activeRoom)
+        },
+        [data]
     )
 
     return (
         <div className="App">
-            <header className="header">
-                <RoomsList
-                    data={contentData}
-                    roomClick={setRoomName}
-                    selected={roomName}
-                />
-                <a
-                    href="https://github.com/sergsar/immoviewer-room"
-                    target="_blank" rel="noreferrer"
-                >
-                    https://github.com/sergsar/immoviewer-room
-                </a>
-            </header>
-            <Scene data={data} className="scene" />
+            { data && (
+                <>
+                    <header className="header">
+                        <RoomsList
+                            data={data.contentData}
+                            roomClick={setRoomName}
+                            selected={roomName}
+                        />
+                        <a
+                            href="https://github.com/sergsar/immoviewer-room"
+                            target="_blank" rel="noreferrer"
+                        >
+                            https://github.com/sergsar/immoviewer-room
+                        </a>
+                    </header>
+                    <Scene data={data} selected={roomName} className="scene" />
+                </>
+            )}
         </div>
     )
 }

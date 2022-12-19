@@ -1,6 +1,7 @@
 import {AmbientLight, Color, DirectionalLight, PerspectiveCamera, Scene, Vector3, WebGLRenderer} from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {IFlat} from "../models/room";
+import {Animator} from "./animator";
 
 export class SceneSetup {
     private readonly resizeBind: () => void
@@ -8,6 +9,8 @@ export class SceneSetup {
     private readonly renderer: WebGLRenderer
     private readonly scene: Scene
     private readonly controls: OrbitControls
+
+    private readonly animator: Animator = new Animator()
 
     private center?: Vector3
 
@@ -37,15 +40,15 @@ export class SceneSetup {
 
         this.controls = new OrbitControls(this.camera, this.renderer.domElement)
         this.controls.maxDistance = 30
+
+        this.animator.callback = this.animate.bind(this)
+        this.animator.start()
     }
 
     public dispose() {
+        this.animator.stop()
         window.removeEventListener( 'resize', this.resizeBind)
         this.renderer.dispose()
-    }
-
-    public animate() {
-        this.renderer.render(this.scene, this.camera)
     }
 
     public switchCamera(name: string) {
@@ -80,7 +83,6 @@ export class SceneSetup {
     }
 
     public setFlat(flat: IFlat) {
-        console.log('set flat: ', flat)
         if (this.flat) {
             this.flat.rooms.forEach(({ object }) => this.scene.remove(object))
             this.flat.exterior.forEach((item) => this.scene.remove(item))
@@ -93,6 +95,10 @@ export class SceneSetup {
         this.center.divideScalar(flat.rooms.length || 1)
 
         this.flat = flat
+    }
+
+    private animate() {
+        this.renderer.render(this.scene, this.camera)
     }
 
     private onWindowResize() {

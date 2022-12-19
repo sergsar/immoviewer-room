@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
-export const useData: <T extends {}>({ name }: { name: string }) => { data: T } = <T extends {}>({ name }: { name: string }) => {
-    const [data, setData] = useState<T>({} as T)
+export const useLocalData: <T>({ name }: { name: string }) => { data: T|undefined } = ({ name }: { name: string }) => {
+    const [data, setData] = useState()
 
     useEffect(() => {
         fetch(`data/${name}.json`, {
