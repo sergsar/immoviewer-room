@@ -1,8 +1,7 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {buildFlat} from '../utils/builder'
-import {initThreeScene} from '../utils/scene'
-import {IThreeSetup} from '../models/three-setup'
 import {SceneData} from '../models/scene-data'
+import {SceneSetup} from "../classes/scene-setup";
 
 type SceneProps = {
     data: SceneData,
@@ -10,14 +9,14 @@ type SceneProps = {
 }
 
 const play = (
-    setup: IThreeSetup
+    setup: SceneSetup
 ) => {
     requestAnimationFrame( () => play(setup))
     setup.animate()
 }
 
 export const Scene: React.FC<SceneProps> = ({ data, className }) => {
-    const [scene, setScene] = useState<IThreeSetup|undefined>()
+    const [scene, setScene] = useState<SceneSetup|undefined>()
 
     const canvasRef = useRef(null)
 
@@ -40,14 +39,15 @@ export const Scene: React.FC<SceneProps> = ({ data, className }) => {
             if (!(canvas && flat?.rooms.length && flat?.exterior.length && activeRoom)) {
                 return
             }
-            const threeScene = initThreeScene(canvas, flat, activeRoom)
+            const threeScene = new SceneSetup(canvas)// initThreeScene(canvas, flat, activeRoom)
+            threeScene.setFlat(flat)
             setScene(threeScene)
             play(threeScene)
         },
         [canvas, flat, activeRoom, scene]
     )
 
-    useEffect(() => scene?.changeRoom(activeRoom), [activeRoom])
+    useEffect(() => scene?.switchCamera(activeRoom), [activeRoom])
 
     useEffect(() => {
         console.warn('mount scene')
