@@ -1,0 +1,18 @@
+.room-demo-room-list {
+    display: flex;
+    gap: 8px;
+    font-size: 0.85rem;
+    .room-list-button {
+        cursor: pointer;
+        background: white;
+        padding: 0 4px;
+        border-radius: 2px;
+        border: 2px solid darkslategray;
+        &.top {
+            margin-right: 16px;
+        }
+        &.selected {
+            border: 2px solid blue;
+        }
+    }
+}

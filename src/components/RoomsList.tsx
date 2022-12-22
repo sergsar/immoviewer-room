@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react'
 import {ContentData} from '../contracts/content-data'
-import './RoomList.css'
+import './RoomList.scss'
 import clsx from 'clsx';
 
 type RoomsListProps = {
@@ -16,7 +16,7 @@ export const RoomsList: React.FC<RoomsListProps> = ({ data, roomClick, selected,
         return Object.values(rooms)
     }, [data])
     return  (
-        <div className={clsx('room-list', className)}>
+        <div className={clsx('room-demo-room-list', className)}>
             <button
                 onClick={() => roomClick('Top')}
                 className={clsx(

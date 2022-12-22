@@ -1,43 +1,12 @@
-import React, {useEffect, useState} from 'react'
-import './App.css'
-import {Scene} from './components/Scene';
-import {RoomsList} from './components/RoomsList';
-import {useApData} from "./hooks/use-ap-data";
+import './main.css';
+import {Overview} from '@pages/Overview';
 
-function App() {
-    const [roomName, setRoomName] = useState('')
-
-    const { data } = useApData()
-
-    useEffect(
-        () => {
-            data?.activeRoom && setRoomName(data.activeRoom)
-        },
-        [data]
-    )
-
+const App: React.FC = () => {
     return (
-        <div className="App">
-            { data && (
-                <>
-                    <header className="header">
-                        <RoomsList
-                            data={data.contentData}
-                            roomClick={setRoomName}
-                            selected={roomName}
-                        />
-                        <a
-                            href="https://github.com/sergsar/immoviewer-room"
-                            target="_blank" rel="noreferrer"
-                        >
-                            https://github.com/sergsar/immoviewer-room
-                        </a>
-                    </header>
-                    <Scene data={data} selected={roomName} className="scene" />
-                </>
-            )}
+        <div>
+            <Overview />
         </div>
-    )
-}
+    );
+};
 
-export default App
+export default App;
