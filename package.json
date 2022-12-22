@@ -1,6 +1,7 @@
 {
   "name": "immoviewer-room-demo",
   "version": "1.0.0",
+  "homepage": "https://sergsar.github.io/immoviewer-room",
   "description": "Demo app for immoviewer application test task",
   "main": "index.js",
   "repository": "https://github.com/sergsar/immoviewer-room-webpack",
@@ -27,7 +28,9 @@
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^4.7.2",
     "babel-loader": "^9.1.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
+    "gh-pages": "^4.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
@@ -44,7 +47,9 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "start": "webpack serve --hot --mode development",
-    "build": "webpack --mode production"
+    "start": "webpack serve --hot --mode development --node-env=development",
+    "build": "webpack --mode production --node-env=production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
