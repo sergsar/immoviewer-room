@@ -1,7 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {buildFlat} from '../utils/builder'
-import {AppData} from '../models/app-data'
-import {SceneSetup} from '../classes/scene-setup';
+import React, { useEffect, useRef, useState } from 'react'
+
+import { SceneSetup } from '../classes/scene-setup';
+import { AppData } from '../models/app-data'
+import { buildFlat } from '../utils/builder'
 
 type SceneProps = {
     data: AppData,

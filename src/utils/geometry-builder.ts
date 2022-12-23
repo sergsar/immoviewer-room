@@ -1,5 +1,6 @@
-import {BufferGeometry, Float32BufferAttribute, Vector3} from 'three';
-import {Point} from '../models/geometry-builder';
+import { BufferGeometry, Float32BufferAttribute, Vector3 } from 'three';
+
+import { Point } from '../models/geometry-builder';
 
 interface IGeometryBuilderParams {
     points: Point[]
@@ -111,7 +112,7 @@ const getHorizontalBorder = (points: Point[], interiorPoints: Point[], elevation
 }
 
 const buildNormals = (positions: number[]): number[] => {
-    let normals = []
+    const normals = []
     const pA = new Vector3()
     const pB = new Vector3()
     const pC = new Vector3()

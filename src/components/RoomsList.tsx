@@ -1,7 +1,9 @@
-import React, {useMemo} from 'react'
-import {ContentData} from '../contracts/content-data'
 import './RoomList.scss'
+
 import clsx from 'clsx';
+import React, { useMemo } from 'react'
+
+import { ContentData } from '../contracts/content-data'
 
 type RoomsListProps = {
     data: ContentData
@@ -12,10 +14,10 @@ type RoomsListProps = {
 
 export const RoomsList: React.FC<RoomsListProps> = ({ data, roomClick, selected, className }) => {
     const rooms = useMemo(() => {
-        const { tour: { rooms = {} } = {}} = data
+        const { tour: { rooms = {} } = {} } = data
         return Object.values(rooms)
     }, [data])
-    return  (
+    return (
         <div className={clsx('room-demo-room-list', className)}>
             <button
                 onClick={() => roomClick('Top')}

@@ -1,7 +1,8 @@
-import {AmbientLight, Color, DirectionalLight, PerspectiveCamera, Scene, Vector3, WebGLRenderer} from 'three';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-import {IFlat} from "../models/room";
-import {Animator} from "./animator";
+import { AmbientLight, Color, DirectionalLight, PerspectiveCamera, Scene, Vector3, WebGLRenderer } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+import { IFlat } from '../models/room';
+import { Animator } from './animator';
 
 export class SceneSetup {
     private readonly resizeBind: () => void

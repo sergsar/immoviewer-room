@@ -5,13 +5,14 @@ import {
     TextureLoader,
     Vector3
 } from 'three'
-import {ThreeDeeData} from '../contracts/three-dee-data';
-import {WORLD_MLT} from '../consts/multipliers';
-import {IFlat, IRoom} from '../models/room';
-import {ContentData, Tour, TourRooms} from '../contracts/content-data';
-import {FRAGMENT_EQ_SHADER, VERTEX_EQ_SHADER} from '../consts/shaders';
-import {buildExteriorGeometry, buildGeometry} from './geometry-builder';
-import {Point} from '../models/geometry-builder';
+
+import { WORLD_MLT } from '../consts/multipliers';
+import { FRAGMENT_EQ_SHADER, VERTEX_EQ_SHADER } from '../consts/shaders';
+import { ContentData, Tour, TourRooms } from '../contracts/content-data';
+import { ThreeDeeData } from '../contracts/three-dee-data';
+import { Point } from '../models/geometry-builder';
+import { IFlat, IRoom } from '../models/room';
+import { buildExteriorGeometry, buildGeometry } from './geometry-builder';
 
 export const buildFlat = (
     { rooms: roomsData = [], cameras }: ThreeDeeData,

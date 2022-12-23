@@ -1,7 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
-//create css file per js file: https://webpack.kr/plugins/mini-css-extract-plugin/
+// create css file per js file: https://webpack.kr/plugins/mini-css-extract-plugin/
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
@@ -15,7 +15,7 @@ const plugins: webpack.WebpackPluginInstance[] = [
     }),
     new CopyPlugin({
         patterns: [
-            { from: "public/data", to: "data" }
+            { from: 'public/data', to: 'data' }
         ],
     }),
 ];
@@ -33,6 +33,7 @@ const config: webpack.Configuration = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'index.js',
+        clean: true
         // more configurations: https://webpack.js.org/configuration/
     },
     plugins,

@@ -1,5 +1,8 @@
 import './main.css';
-import {Overview} from '@pages/Overview';
+
+import React from 'react';
+
+import { Overview } from './pages/Overview';
 
 const App: React.FC = () => {
     return (

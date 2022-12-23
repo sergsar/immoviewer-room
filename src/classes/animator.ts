@@ -1,7 +1,7 @@
 export class Animator {
     public callback?: () => void
 
-    private object: any
+    private object: unknown
 
     public start() {
         this.stop()
@@ -12,7 +12,7 @@ export class Animator {
         this.object = undefined
     }
 
-    private play(object: any) {
+    private play(object: unknown) {
         if (this.object !== object) {
             return
         }
