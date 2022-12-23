@@ -9,11 +9,12 @@ import {
 } from 'three'
 
 import { WORLD_MLT } from '../consts/multipliers'
-import { FRAGMENT_EQ_SHADER, VERTEX_EQ_SHADER } from '../consts/shaders'
 import { ContentData, Tour, TourRooms } from '../contracts/content-data'
 import { ThreeDeeData } from '../contracts/three-dee-data'
 import { Point } from '../models/geometry-builder'
 import { IFlat, IRoom } from '../models/room'
+import equirectangularFragmentShader from '../shaders/equirectangular-fragment-shader.cpp'
+import equirectangularVertexShader from '../shaders/equirectangular-vertex-shader.cpp'
 import { buildExteriorGeometry, buildGeometry } from './geometry-builder'
 
 export const buildFlat = (
@@ -54,8 +55,8 @@ export const buildFlat = (
         center: { value: cameraPos },
         angle: { value: (camera.mergeAngle * Math.PI) / 180.0 },
       },
-      vertexShader: VERTEX_EQ_SHADER,
-      fragmentShader: FRAGMENT_EQ_SHADER,
+      vertexShader: equirectangularVertexShader,
+      fragmentShader: equirectangularFragmentShader,
       side: BackSide,
       transparent: true,
     })
