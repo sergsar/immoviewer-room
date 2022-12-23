@@ -1,18 +1,17 @@
-
 export interface ContentData {
-    tour: Tour
+  tour: Tour
 }
 
 export interface RoomContent {
-    name: string
-    url: string
+  name: string
+  url: string
 }
 
 export interface Tour {
-    activeRoom: string
-    rooms: TourRooms
+  activeRoom: string
+  rooms: TourRooms
 }
 
 export interface TourRooms {
-    [key: string]: RoomContent
+  [key: string]: RoomContent
 }

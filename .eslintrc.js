@@ -7,7 +7,8 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended'
+        'plugin:@typescript-eslint/recommended',
+        'prettier'
     ],
     'overrides': [
     ],
@@ -20,7 +21,8 @@ module.exports = {
         'react',
         'react-hooks',
         '@typescript-eslint',
-        'simple-import-sort'
+        'simple-import-sort',
+        'prettier'
     ],
     'rules': {
         'react/react-in-jsx-scope': 'off',
@@ -31,7 +33,8 @@ module.exports = {
         'no-duplicate-imports': ['error'],
         'object-curly-spacing': ['error', 'always'],
         'simple-import-sort/imports': 'error',
-        'simple-import-sort/exports': 'error'
+        'simple-import-sort/exports': 'error',
+        'prettier/prettier': 'warn',
     },
     'settings': {
         'import/resolver': {

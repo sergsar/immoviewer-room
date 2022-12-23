@@ -1,22 +1,22 @@
 export class Animator {
-    public callback?: () => void
+  public callback?: () => void
 
-    private object: unknown
+  private object: unknown
 
-    public start() {
-        this.stop()
-        this.play(this.object = {})
+  public start() {
+    this.stop()
+    this.play((this.object = {}))
+  }
+
+  public stop() {
+    this.object = undefined
+  }
+
+  private play(object: unknown) {
+    if (this.object !== object) {
+      return
     }
-
-    public stop() {
-        this.object = undefined
-    }
-
-    private play(object: unknown) {
-        if (this.object !== object) {
-            return
-        }
-        requestAnimationFrame(() => this.play(object))
-        this.callback && this.callback()
-    }
+    requestAnimationFrame(() => this.play(object))
+    this.callback && this.callback()
+  }
 }
