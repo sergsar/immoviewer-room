@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { SceneSetup } from '../classes/scene-setup'
-import { AppData } from '../models/app-data'
-import { buildFlat } from '../utils/builder'
+import { SceneSetup } from '../../classes/scene-setup'
+import { AppData } from '../../models/app-data'
+import { buildFlat } from '../../utils/builder'
 
 type SceneProps = {
   data: AppData
@@ -48,7 +48,14 @@ export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
 
   return (
     <div className={className}>
-      <canvas style={{ width: '100%', height: '100%', display: 'block' }} ref={canvasRef} />
+      <canvas
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'block',
+        }}
+        ref={canvasRef}
+      />
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import { ContentData } from '../contracts/content-data'
-import { ThreeDeeData } from '../contracts/three-dee-data'
+import { ObjectsData } from '../contracts/objects-data'
 
 export interface AppData {
-  threeDeeData: ThreeDeeData
+  threeDeeData: ObjectsData
   contentData: ContentData
   activeRoom: string
 }

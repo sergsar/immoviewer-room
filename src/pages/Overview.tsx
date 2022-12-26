@@ -2,8 +2,9 @@ import './Overview.scss'
 
 import React, { useEffect, useState } from 'react'
 
-import { RoomsList } from '../components/RoomsList'
-import { Scene } from '../components/Scene'
+import { Plan } from '../components/Plan/Plan'
+import { RoomsList } from '../components/RoomList/RoomsList'
+import { Scene } from '../components/Scene/Scene'
 import { useApData } from '../hooks/use-ap-data'
 
 export const Overview: React.FC = () => {
@@ -16,16 +17,27 @@ export const Overview: React.FC = () => {
   }, [data])
 
   return (
-    <div className='room-demo-overview'>
+    <div className="room-demo-overview">
       {data && (
         <>
-          <div className='buttons'>
-            <RoomsList data={data.contentData} roomClick={setRoomName} selected={roomName} />
-            <a href='https://github.com/sergsar/immoviewer-room' target='_blank' rel='noreferrer'>
-              https://github.com/sergsar/immoviewer-room
-            </a>
+          <div className="view">
+            <div className="buttons">
+              <RoomsList
+                data={data.contentData}
+                roomClick={setRoomName}
+                selected={roomName}
+              />
+              <a
+                href="https://github.com/sergsar/immoviewer-room"
+                target="_blank"
+                rel="noreferrer"
+              >
+                https://github.com/sergsar/immoviewer-room
+              </a>
+            </div>
+            <Plan data={data} className="plan" />
           </div>
-          <Scene data={data} selected={roomName} className='scene' />
+          <Scene data={data} selected={roomName} className="scene" />
         </>
       )}
     </div>

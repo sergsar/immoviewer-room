@@ -1,4 +1,4 @@
-export interface ThreeDeeData {
+export interface ObjectsData {
   rooms: Room[]
   cameras: Camera[]
 }

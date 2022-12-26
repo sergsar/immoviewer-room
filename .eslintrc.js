@@ -16,13 +16,19 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'simple-import-sort', 'prettier'],
+  plugins: [
+    'import',
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'simple-import-sort',
+    'prettier',
+  ],
   rules: {
     'react/react-in-jsx-scope': 'off',
     camelcase: 'error',
     'spaced-comment': 'error',
     'no-multi-spaces': 'error',
-    quotes: ['error', 'single'],
     'no-duplicate-imports': ['error'],
     'object-curly-spacing': ['error', 'always'],
     'simple-import-sort/imports': 'error',
@@ -30,6 +36,9 @@ module.exports = {
     'prettier/prettier': 'warn',
   },
   settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
       typescript: {},
     },

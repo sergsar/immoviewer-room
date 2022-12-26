@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 
-export const useLocalData: <T>({ name }: { name: string }) => { data: T | undefined } = ({
-  name,
-}: {
-  name: string
-}) => {
+export const useLocalData: <T>({ name }: { name: string }) => {
+  data: T | undefined
+} = ({ name }: { name: string }) => {
   const [data, setData] = useState()
 
   useEffect(() => {

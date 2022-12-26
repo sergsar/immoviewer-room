@@ -6,9 +6,9 @@ import { Overview } from './pages/Overview'
 
 const App: React.FC = () => {
   return (
-    <div>
+    <>
       <Overview />
-    </div>
+    </>
   )
 }
 

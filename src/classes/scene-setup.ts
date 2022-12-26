@@ -26,7 +26,12 @@ export class SceneSetup {
   private flat?: IFlat
 
   constructor(private canvas: HTMLCanvasElement) {
-    this.camera = new PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.25, 160)
+    this.camera = new PerspectiveCamera(
+      36,
+      window.innerWidth / window.innerHeight,
+      0.25,
+      160,
+    )
     this.camera.position.set(0, 1, 0)
     this.camera.near = 0.05
     this.camera.far = 100

@@ -76,7 +76,7 @@ const config: webpack.Configuration = {
         ],
       },
       {
-        test: /.(cpp|txt)(\?[a-z0-9=\.]+)?$/,
+        test: /.(cpp|txt)(\?[a-z0-9=.]+)?$/,
         use: [
           {
             loader: 'raw-loader',
