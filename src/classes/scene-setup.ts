@@ -5,7 +5,7 @@ import {
   PerspectiveCamera,
   Scene,
   Vector3,
-  WebGLRenderer,
+  WebGLRenderer
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
@@ -31,7 +31,7 @@ export class SceneSetup {
       36,
       window.innerWidth / window.innerHeight,
       0.25,
-      160,
+      160
     )
     this.camera.position.set(0, 1, 0)
     this.camera.near = 0.05
@@ -101,7 +101,7 @@ export class SceneSetup {
 
     this.center = flat.rooms.reduce(
       (acc, curr) => acc.add(curr.camera.position),
-      new Vector3(0, 0, 0),
+      new Vector3(0, 0, 0)
     )
     this.center.divideScalar(flat.rooms.length || 1)
 

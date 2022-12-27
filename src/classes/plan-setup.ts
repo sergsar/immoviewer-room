@@ -19,8 +19,8 @@ export class PlanSetup {
     const planItems: Array<IPlanItem> = objectsData.rooms.map(
       ({ corners, roomName }) => ({
         name: roomName,
-        points: corners.map(({ x, y }) => ({ x: -x, y: -y })),
-      }),
+        points: corners.map(({ x, y }) => ({ x: -x, y: -y }))
+      })
     )
 
     this.planItems = place(planItems, width, height, 0.8)

@@ -18,7 +18,7 @@ interface IGeometryExteriorBuilderParams {
 export const buildGeometry = ({
   points,
   height,
-  flip,
+  flip
 }: IGeometryBuilderParams): BufferGeometry => {
   const geometry = new BufferGeometry()
   const positions = []
@@ -45,7 +45,7 @@ export const buildExteriorGeometry = ({
   points,
   interiorPoints,
   height,
-  flip,
+  flip
 }: IGeometryExteriorBuilderParams): BufferGeometry => {
   const geometry = new BufferGeometry()
   const positions = []
@@ -72,7 +72,7 @@ const getVertical = (
   points: IPoint[],
   top: number,
   bottom: number,
-  flip?: boolean,
+  flip?: boolean
 ): number[] => {
   const vertical = []
   for (let i = 0; i < points.length; i++) {
@@ -87,7 +87,7 @@ const getVertical = (
       end.z,
       start.x,
       top,
-      start.z,
+      start.z
     ]
     let triangle2 = [
       start.x,
@@ -98,7 +98,7 @@ const getVertical = (
       end.z,
       end.x,
       top,
-      end.z,
+      end.z
     ]
     if (flip) {
       triangle1 = [
@@ -110,7 +110,7 @@ const getVertical = (
         start.z,
         end.x,
         bottom,
-        end.z,
+        end.z
       ]
       triangle2 = [
         start.x,
@@ -121,7 +121,7 @@ const getVertical = (
         end.z,
         end.x,
         bottom,
-        end.z,
+        end.z
       ]
     }
     vertical.push(...triangle1, ...triangle2)
@@ -132,7 +132,7 @@ const getVertical = (
 const getHorizontal = (
   points: IPoint[],
   elevation: number,
-  flip?: boolean,
+  flip?: boolean
 ): number[] => {
   const horizontal = []
   for (let i = 0; i < points.length - 2; i++) {
@@ -148,7 +148,7 @@ const getHorizontal = (
       pointB.z,
       pointC.x,
       elevation,
-      pointC.z,
+      pointC.z
     ]
     if (flip) {
       triangle = [
@@ -160,7 +160,7 @@ const getHorizontal = (
         pointC.z,
         pointB.x,
         elevation,
-        pointB.z,
+        pointB.z
       ]
     }
     horizontal.push(...triangle)
@@ -172,7 +172,7 @@ const getHorizontalBorder = (
   points: IPoint[],
   interiorPoints: IPoint[],
   elevation: number,
-  flip?: boolean,
+  flip?: boolean
 ): number[] => {
   const horizontal: number[] = []
   for (let i = 0; i < points.length; i++) {
@@ -190,7 +190,7 @@ const getHorizontalBorder = (
       endOut.z,
       startIn.x,
       elevation,
-      startIn.z,
+      startIn.z
     ]
     let triangle2 = [
       startIn.x,
@@ -201,7 +201,7 @@ const getHorizontalBorder = (
       endOut.z,
       endIn.x,
       elevation,
-      endIn.z,
+      endIn.z
     ]
     if (flip) {
       triangle1 = [
@@ -213,7 +213,7 @@ const getHorizontalBorder = (
         startIn.z,
         endOut.x,
         elevation,
-        endOut.z,
+        endOut.z
       ]
       triangle2 = [
         startIn.x,
@@ -224,7 +224,7 @@ const getHorizontalBorder = (
         endIn.z,
         endOut.x,
         elevation,
-        endOut.z,
+        endOut.z
       ]
     }
     horizontal.push(...triangle1, ...triangle2)

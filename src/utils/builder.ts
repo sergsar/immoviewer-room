@@ -5,7 +5,7 @@ import {
   Object3D,
   ShaderMaterial,
   TextureLoader,
-  Vector3,
+  Vector3
 } from 'three'
 
 import { WORLD_MLT } from '../consts/multipliers'
@@ -19,7 +19,7 @@ import { buildExteriorGeometry, buildGeometry } from './geometry-builder'
 
 export const buildFlat = (
   { rooms: roomsData = [], cameras }: ObjectsData,
-  { tour: { rooms: tourRooms = {} as TourRooms } = {} as Tour }: ContentData,
+  { tour: { rooms: tourRooms = {} as TourRooms } = {} as Tour }: ContentData
 ): IFlat => {
   const textureLoader = new TextureLoader()
   textureLoader.crossOrigin = 'Anonymous'
@@ -29,7 +29,7 @@ export const buildFlat = (
     color: 'rgb(85, 85, 85)',
     specular: 30,
     transparent: true,
-    opacity: 0.85,
+    opacity: 0.85
   })
 
   roomsData.forEach(({ corners, interiorCorners, roomName }) => {
@@ -54,19 +54,19 @@ export const buildFlat = (
         map: { value: map },
         center: { value: cameraPos.clone().multiplyScalar(-1) },
         angle: {
-          value: ((-camera.mergeAngle + 180) * Math.PI) / 180.0,
-        },
+          value: ((-camera.mergeAngle + 180) * Math.PI) / 180.0
+        }
       },
       vertexShader: equirectangularVertexShader,
       fragmentShader: equirectangularFragmentShader,
       side: BackSide,
-      transparent: true,
+      transparent: true
     })
 
     const geometry = buildGeometry({
       points: interiorPoints,
       height: 3,
-      flip: true,
+      flip: true
     })
 
     const mesh = new Mesh(geometry, material)
@@ -75,15 +75,15 @@ export const buildFlat = (
       object: mesh,
       name: roomName,
       camera: {
-        position: cameraPos,
-      },
+        position: cameraPos
+      }
     })
 
     const exteriorGeometry = buildExteriorGeometry({
       points: exteriorPoints,
       interiorPoints,
       height: 3,
-      flip: true,
+      flip: true
     })
     const exteriorMesh = new Mesh(exteriorGeometry, exteriorMaterial)
 
@@ -92,13 +92,13 @@ export const buildFlat = (
 
   return {
     rooms,
-    exterior,
+    exterior
   }
 }
 
 const getPoints = (corners: Array<{ x: number; y: number }>): IPoint[] => {
   return corners.map(({ x, y }) => ({
     x: -x * WORLD_MLT,
-    z: -y * WORLD_MLT,
+    z: -y * WORLD_MLT
   }))
 }

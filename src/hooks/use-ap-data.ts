@@ -11,10 +11,10 @@ export const useApData = (): {
 } => {
   const [data, setData] = useState<AppData | undefined>()
   const { data: contentData } = useLocalData<ContentData>({
-    name: '1',
+    name: '1'
   })
   const { data: threeDeeData } = useLocalData<ObjectsData>({
-    name: '2',
+    name: '2'
   })
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const useApData = (): {
     setData({
       objectsData: threeDeeData,
       contentData,
-      activeRoom: retrieveActiveRoomName(contentData),
+      activeRoom: retrieveActiveRoomName(contentData)
     })
   }, [threeDeeData, contentData])
 

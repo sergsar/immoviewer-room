@@ -17,7 +17,7 @@ export const RoomsList: React.FC<RoomsListProps> = ({
   data,
   roomClick,
   selected,
-  className,
+  className
 }) => {
   const rooms = useMemo(() => {
     const { tour: { rooms = {} } = {} } = data
@@ -30,7 +30,7 @@ export const RoomsList: React.FC<RoomsListProps> = ({
         className={clsx(
           'room-list-button',
           'top',
-          selected === TOP_VIEW && 'selected',
+          selected === TOP_VIEW && 'selected'
         )}
       >
         Top

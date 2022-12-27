@@ -52,7 +52,7 @@ export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
         style={{
           width: '100%',
           height: '100%',
-          display: 'block',
+          display: 'block'
         }}
         ref={canvasRef}
       />

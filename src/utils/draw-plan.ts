@@ -5,23 +5,23 @@ import { IPoint2D } from '../models/point'
 export const getDimensions2D = (rect: IRect2D): IDimensions2D => {
   return {
     width: rect.max.x - rect.min.x,
-    height: rect.max.y - rect.min.y,
+    height: rect.max.y - rect.min.y
   }
 }
 
 export const getFullRect2D = (points: IPoint2D[]): IRect2D => {
   const rect: IRect2D = {
     min: { x: 0, y: 0 },
-    max: { x: 0, y: 0 },
+    max: { x: 0, y: 0 }
   }
   points.forEach(({ x, y }) => {
     rect.min = {
       x: Math.min(rect.min.x, x),
-      y: Math.min(rect.min.y, y),
+      y: Math.min(rect.min.y, y)
     }
     rect.max = {
       x: Math.max(rect.max.x, x),
-      y: Math.max(rect.max.y, y),
+      y: Math.max(rect.max.y, y)
     }
   })
   return rect
@@ -31,11 +31,11 @@ export const place = (
   planItems: Array<IPlanItem>,
   width: number,
   height: number,
-  scale = 1,
+  scale = 1
 ): Array<IPlanItem> => {
   const points = planItems.reduce(
     (acc: IPoint2D[], curr) => [...acc, ...curr.points],
-    [],
+    []
   )
   const rect = getFullRect2D(points)
   const dimensions = getDimensions2D(rect)
@@ -50,7 +50,7 @@ export const place = (
     ...item,
     points: item.points.map(({ x, y }) => ({
       x: x * rescale + shiftX,
-      y: y * rescale + shiftY,
-    })),
+      y: y * rescale + shiftY
+    }))
   }))
 }

@@ -9,8 +9,8 @@ export const useLocalData: <T>({ name }: { name: string }) => {
     fetch(`data/${name}.json`, {
       headers: {
         'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
+        Accept: 'application/json'
+      }
     })
       .then((res) => res.json())
       .then((json) => setData(json))
