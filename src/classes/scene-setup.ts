@@ -68,7 +68,7 @@ export class SceneSetup {
     const { camera, controls, center = new Vector3(), flat } = this
     if (name === TOP_VIEW) {
       camera.setFocalLength(45)
-      camera.position.copy(center).add(new Vector3(-15, 15, 15))
+      camera.position.copy(center).add(new Vector3(15, 15, 15))
       controls.rotateSpeed = 1
       controls.minDistance = 20
       controls.target.copy(center)
@@ -81,7 +81,7 @@ export class SceneSetup {
       return
     }
     camera.setFocalLength(20)
-    const cameraPos = selectedRoom.camera.position.clone().multiplyScalar(-1)
+    const cameraPos = selectedRoom.camera.position
     camera.position.copy(cameraPos).add(new Vector3(0.1, 0.1, 0.1))
     controls.rotateSpeed = 2
     controls.minDistance = 0
@@ -100,7 +100,7 @@ export class SceneSetup {
     this.scene.add(...flat.exterior)
 
     this.center = flat.rooms.reduce(
-      (acc, curr) => acc.sub(curr.camera.position),
+      (acc, curr) => acc.add(curr.camera.position),
       new Vector3(0, 0, 0),
     )
     this.center.divideScalar(flat.rooms.length || 1)

@@ -18,7 +18,7 @@ void main() {
 
     vec3 direction = normalize(positionRotate);
     vec2 sampleUV = vec2(
-        (atan(direction.x, direction.z) / PI + 1.0) * 0.5,
+        (atan(direction.z, direction.x) / PI + 1.0) * 0.5,
         asin(direction.y) / PI + 0.5
     );
 

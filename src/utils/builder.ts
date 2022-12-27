@@ -45,16 +45,16 @@ export const buildFlat = (
       return
     }
     const map = textureLoader.load(mapUrl)
-    const cameraPos = new Vector3(camera.y, 0, camera.x)
-      .multiplyScalar(WORLD_MLT)
-      .multiplyScalar(-1)
+    const cameraPos = new Vector3(-camera.x, 0, -camera.y).multiplyScalar(
+      WORLD_MLT
+    )
 
     const material = new ShaderMaterial({
       uniforms: {
         map: { value: map },
-        center: { value: cameraPos },
+        center: { value: cameraPos.clone().multiplyScalar(-1) },
         angle: {
-          value: (camera.mergeAngle * Math.PI) / 180.0,
+          value: ((-camera.mergeAngle + 180) * Math.PI) / 180.0,
         },
       },
       vertexShader: equirectangularVertexShader,
@@ -66,7 +66,7 @@ export const buildFlat = (
     const geometry = buildGeometry({
       points: interiorPoints,
       height: 3,
-      flip: false,
+      flip: true,
     })
 
     const mesh = new Mesh(geometry, material)
@@ -83,7 +83,7 @@ export const buildFlat = (
       points: exteriorPoints,
       interiorPoints,
       height: 3,
-      flip: false,
+      flip: true,
     })
     const exteriorMesh = new Mesh(exteriorGeometry, exteriorMaterial)
 
@@ -98,7 +98,7 @@ export const buildFlat = (
 
 const getPoints = (corners: Array<{ x: number; y: number }>): IPoint[] => {
   return corners.map(({ x, y }) => ({
-    x: y * WORLD_MLT,
-    z: x * WORLD_MLT,
+    x: -x * WORLD_MLT,
+    z: -y * WORLD_MLT,
   }))
 }
