@@ -15,7 +15,7 @@ export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
 
   const canvasRef = useRef(null)
 
-  const { threeDeeData, contentData } = data
+  const { objectsData, contentData } = data
 
   const { current: canvas } = canvasRef
 
@@ -27,7 +27,7 @@ export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
       return
     }
     const threeScene = new SceneSetup(canvas)
-    const flat = buildFlat(threeDeeData, contentData)
+    const flat = buildFlat(objectsData, contentData)
     threeScene.setFlat(flat)
     threeScene.switchCamera(selected)
     setScene(threeScene)

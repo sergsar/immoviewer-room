@@ -9,6 +9,7 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
+import { TOP_VIEW } from '../consts/names'
 import { IFlat } from '../models/room'
 import { Animator } from './animator'
 
@@ -65,9 +66,9 @@ export class SceneSetup {
 
   public switchCamera(name: string) {
     const { camera, controls, center = new Vector3(), flat } = this
-    if (name === 'Top') {
+    if (name === TOP_VIEW) {
       camera.setFocalLength(45)
-      camera.position.copy(center).add(new Vector3(15, 15, 15))
+      camera.position.copy(center).add(new Vector3(-15, 15, 15))
       controls.rotateSpeed = 1
       controls.minDistance = 20
       controls.target.copy(center)

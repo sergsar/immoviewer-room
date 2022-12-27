@@ -22,7 +22,7 @@ export const useApData = (): {
       return
     }
     setData({
-      threeDeeData,
+      objectsData: threeDeeData,
       contentData,
       activeRoom: retrieveActiveRoomName(contentData),
     })

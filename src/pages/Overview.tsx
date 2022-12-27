@@ -13,6 +13,9 @@ export const Overview: React.FC = () => {
   const { data } = useApData()
 
   useEffect(() => {
+    if (roomName) {
+      return
+    }
     data?.activeRoom && setRoomName(data.activeRoom)
   }, [data])
 
@@ -35,7 +38,7 @@ export const Overview: React.FC = () => {
                 https://github.com/sergsar/immoviewer-room
               </a>
             </div>
-            <Plan data={data} className="plan" />
+            <Plan data={data} selected={roomName} className="plan" />
           </div>
           <Scene data={data} selected={roomName} className="scene" />
         </>

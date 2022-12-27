@@ -3,6 +3,7 @@ import './RoomList.scss'
 import clsx from 'clsx'
 import React, { useMemo } from 'react'
 
+import { TOP_VIEW } from '../../consts/names'
 import { ContentData } from '../../contracts/content-data'
 
 type RoomsListProps = {
@@ -25,11 +26,11 @@ export const RoomsList: React.FC<RoomsListProps> = ({
   return (
     <div className={clsx('room-demo-room-list', className)}>
       <button
-        onClick={() => roomClick('Top')}
+        onClick={() => roomClick(TOP_VIEW)}
         className={clsx(
           'room-list-button',
           'top',
-          selected === 'Top' && 'selected',
+          selected === TOP_VIEW && 'selected',
         )}
       >
         Top
