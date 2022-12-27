@@ -1,7 +1,7 @@
 import './Plan.scss'
 
 import clsx from 'clsx'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 
 import { PlanSetup } from '../../classes/plan-setup'
 import { AppData } from '../../models/app-data'
@@ -17,10 +17,11 @@ export const Plan: React.FC<PlanProps> = ({ className, data, selected }) => {
 
   const [plan, setPlan] = useState<PlanSetup | undefined>()
 
-  const { current: canvas } = canvasRef
+  const { current: canvas } = useMemo(() => canvasRef, [canvasRef])
 
   useEffect(() => {
     if (!canvas) {
+      setPlan(null)
       return
     }
     const ctx = canvas.getContext('2d')

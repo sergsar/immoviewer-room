@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { Plan } from '../components/Plan/Plan'
 import { RoomsList } from '../components/RoomList/RoomsList'
 import { Scene } from '../components/Scene/Scene'
+import { TOP_VIEW } from '../consts/names'
 import { useApData } from '../hooks/use-ap-data'
 
 export const Overview: React.FC = () => {
@@ -38,7 +39,9 @@ export const Overview: React.FC = () => {
                 https://github.com/sergsar/immoviewer-room
               </a>
             </div>
-            <Plan data={data} selected={roomName} className="plan" />
+            {roomName !== TOP_VIEW && (
+              <Plan data={data} selected={roomName} className="plan" />
+            )}
           </div>
           <Scene data={data} selected={roomName} className="scene" />
         </>
