@@ -11,6 +11,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 import { TOP_VIEW } from '../consts/names'
 import { IFlat } from '../models/room'
+import { AnimationContext } from './animation-context'
 import { Animator } from './animator'
 
 export class SceneSetup {
@@ -26,7 +27,10 @@ export class SceneSetup {
 
   private flat?: IFlat
 
-  constructor(private canvas: HTMLCanvasElement) {
+  constructor(
+    private readonly canvas: HTMLCanvasElement,
+    private readonly animationContext: AnimationContext
+  ) {
     this.camera = new PerspectiveCamera(
       36,
       window.innerWidth / window.innerHeight,
@@ -110,6 +114,13 @@ export class SceneSetup {
 
   private animate() {
     this.renderer.render(this.scene, this.camera)
+    const cameraDirection = this.camera.getWorldDirection(
+      this.controls.target.clone()
+    )
+    this.animationContext.cameraAngle = -Math.atan2(
+      cameraDirection.x,
+      cameraDirection.z
+    )
   }
 
   private onWindowResize() {

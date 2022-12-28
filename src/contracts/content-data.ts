@@ -5,6 +5,7 @@ export interface ContentData {
 export interface RoomContent {
   name: string
   url: string
+  filename: string
 }
 
 export interface Tour {

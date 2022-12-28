@@ -3,6 +3,7 @@ import './Plan.scss'
 import clsx from 'clsx'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 
+import { AnimationContext } from '../../classes/animation-context'
 import { PlanSetup } from '../../classes/plan-setup'
 import { AppData } from '../../models/app-data'
 
@@ -10,12 +11,18 @@ type PlanProps = {
   className: string
   selected: string
   data: AppData
+  animationContext: AnimationContext
 }
 
-export const Plan: React.FC<PlanProps> = ({ className, data, selected }) => {
+export const Plan: React.FC<PlanProps> = ({
+  className,
+  data,
+  selected,
+  animationContext
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
-  const [plan, setPlan] = useState<PlanSetup | undefined>()
+  const [plan, setPlan] = useState<PlanSetup | null>()
 
   const { current: canvas } = useMemo(() => canvasRef, [canvasRef])
 
@@ -31,10 +38,9 @@ export const Plan: React.FC<PlanProps> = ({ className, data, selected }) => {
     }
     canvas.width = canvas.offsetWidth
     canvas.height = canvas.offsetHeight
-    const planSetup = new PlanSetup(ctx)
+    const planSetup = new PlanSetup(ctx, animationContext)
     planSetup.setFlat(data.objectsData)
     planSetup.setHighlighted(selected)
-    planSetup.redraw()
     setPlan(planSetup)
   }, [canvas])
 
@@ -43,8 +49,18 @@ export const Plan: React.FC<PlanProps> = ({ className, data, selected }) => {
       return
     }
     plan.setHighlighted(selected)
-    plan.redraw()
   }, [selected])
+
+  useEffect(() => {
+    console.warn('mount plan')
+    // Here the component will mount
+    return () => {
+      console.warn('unmount plan')
+      // Here the component will unmount
+      plan?.dispose()
+      setPlan(null)
+    }
+  }, [])
 
   return (
     <div className={clsx('room-demo-plan', className)}>

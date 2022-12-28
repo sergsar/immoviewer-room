@@ -1,7 +1,8 @@
 import './Overview.scss'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
+import { AnimationContext } from '../classes/animation-context'
 import { Plan } from '../components/Plan/Plan'
 import { RoomsList } from '../components/RoomList/RoomsList'
 import { Scene } from '../components/Scene/Scene'
@@ -12,6 +13,8 @@ export const Overview: React.FC = () => {
   const [roomName, setRoomName] = useState('')
 
   const { data } = useApData()
+
+  const animationContext = useMemo(() => new AnimationContext(), [])
 
   useEffect(() => {
     if (roomName) {
@@ -40,10 +43,20 @@ export const Overview: React.FC = () => {
               </a>
             </div>
             {roomName !== TOP_VIEW && (
-              <Plan data={data} selected={roomName} className="plan" />
+              <Plan
+                data={data}
+                selected={roomName}
+                animationContext={animationContext}
+                className="plan"
+              />
             )}
           </div>
-          <Scene data={data} selected={roomName} className="scene" />
+          <Scene
+            data={data}
+            selected={roomName}
+            animationContext={animationContext}
+            className="scene"
+          />
         </>
       )}
     </div>

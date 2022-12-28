@@ -11,11 +11,14 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 // define plugins
 const plugins: webpack.WebpackPluginInstance[] = [
   new HTMLWebpackPlugin({
-    template: './public/index.html', // you have to have the template file
+    template: './public/index.html' // you have to have the template file
   }),
   new CopyPlugin({
-    patterns: [{ from: 'public/data', to: 'data' }],
-  }),
+    patterns: [
+      { from: 'public/data', to: 'data' },
+      { from: 'public/images', to: 'images' }
+    ]
+  })
 ]
 isDevelopment
   ? plugins.push(new ReactRefreshWebpackPlugin())
@@ -25,13 +28,13 @@ const config: webpack.Configuration = {
   mode: isDevelopment ? 'development' : 'production',
   devServer: {
     hot: true,
-    port: 3000,
+    port: 3000
   },
   entry: './src/index.tsx', // codes will be inside src folder
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
-    clean: true,
+    clean: true
     // more configurations: https://webpack.js.org/configuration/
   },
   plugins,
@@ -41,14 +44,14 @@ const config: webpack.Configuration = {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
     alias: {
       // absolute path importing files
-      '@pages': path.resolve(__dirname, './src/pages'),
-    },
+      '@pages': path.resolve(__dirname, './src/pages')
+    }
   },
   module: {
     rules: [
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        use: ['html-loader']
       },
       {
         test: /\.(js|jsx|ts|tsx)$/,
@@ -57,10 +60,12 @@ const config: webpack.Configuration = {
           {
             loader: require.resolve('babel-loader'),
             options: {
-              plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean),
-            },
-          },
-        ],
+              plugins: [
+                isDevelopment && require.resolve('react-refresh/babel')
+              ].filter(Boolean)
+            }
+          }
+        ]
       },
       {
         test: /\.(sa|sc|c)ss$/i, // .sass or .scss
@@ -72,20 +77,20 @@ const config: webpack.Configuration = {
           // for Tailwind CSS
           'postcss-loader',
           // Compiles Sass to CSS
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /.(cpp|txt)(\?[a-z0-9=.]+)?$/,
         use: [
           {
             loader: 'raw-loader',
-            options: {},
-          },
-        ],
-      },
-    ],
-  },
+            options: {}
+          }
+        ]
+      }
+    ]
+  }
 }
 
 export default config

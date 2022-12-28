@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
+import { AnimationContext } from '../../classes/animation-context'
 import { SceneSetup } from '../../classes/scene-setup'
 import { AppData } from '../../models/app-data'
 import { buildFlat } from '../../utils/builder'
@@ -8,10 +9,16 @@ type SceneProps = {
   data: AppData
   selected: string
   className: string
+  animationContext: AnimationContext
 }
 
-export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
-  const [scene, setScene] = useState<SceneSetup | undefined>()
+export const Scene: React.FC<SceneProps> = ({
+  data,
+  selected,
+  animationContext,
+  className
+}) => {
+  const [scene, setScene] = useState<SceneSetup | null>()
 
   const canvasRef = useRef(null)
 
@@ -26,7 +33,7 @@ export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
     if (!(canvas && selected)) {
       return
     }
-    const threeScene = new SceneSetup(canvas)
+    const threeScene = new SceneSetup(canvas, animationContext)
     const flat = buildFlat(objectsData, contentData)
     threeScene.setFlat(flat)
     threeScene.switchCamera(selected)
@@ -42,7 +49,7 @@ export const Scene: React.FC<SceneProps> = ({ data, selected, className }) => {
       console.warn('unmount scene')
       // Here the component will unmount
       scene?.dispose()
-      setScene(undefined)
+      setScene(null)
     }
   }, [])
 
