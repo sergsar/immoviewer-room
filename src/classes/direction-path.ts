@@ -14,8 +14,8 @@ export class DirectionPath {
     let points: IPoint2D[] = [
       { x: radius * 0.5, y: 0 },
       { x: -radius * 0.5, y: 0 },
-      { x: -radius * 2, y: radius * 4 },
-      { x: radius * 2, y: radius * 4 }
+      { x: -radius * 4, y: radius * 15 },
+      { x: radius * 4, y: radius * 15 }
     ]
     const cosine = Math.cos(angle)
     const sine = Math.sin(angle)

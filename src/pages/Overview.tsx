@@ -47,6 +47,7 @@ export const Overview: React.FC = () => {
                 data={data}
                 selected={roomName}
                 animationContext={animationContext}
+                roomClick={setRoomName}
                 className="plan"
               />
             )}

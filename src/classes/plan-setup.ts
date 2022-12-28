@@ -1,5 +1,6 @@
 import { ObjectsData } from '../contracts/objects-data'
 import { IPlanItem, IPlanItemCamera, IPlanItemRoom } from '../models/plan-item'
+import { IPoint2D } from '../models/point'
 import { place } from '../utils/draw-plan'
 import { AnimationContext } from './animation-context'
 import { Animator } from './animator'
@@ -8,21 +9,33 @@ import { DirectionPath } from './direction-path'
 export class PlanSetup {
   private planItems: IPlanItem[] = []
   private highlighted = ''
+  private roomOver = ''
   private readonly highlightedColor = 'rgba(255, 255, 255, 0.3)'
   private readonly strokeColor = 'rgba(255, 255, 255, 1)'
 
   private readonly animator: Animator = new Animator()
+  private readonly pointerBind: (e: MouseEvent) => void
+  private readonly clickBind: (e: MouseEvent) => void
+
+  private pointer: IPoint2D = { x: 0, y: 0 }
 
   constructor(
     private readonly context: CanvasRenderingContext2D,
-    private readonly animationContext: AnimationContext
+    private readonly animationContext: AnimationContext,
+    private readonly clickCallback: (name: string) => void
   ) {
     this.animator.callback = this.redraw.bind(this)
     this.animator.start()
+    this.pointerBind = this.pointerMove.bind(this)
+    this.clickBind = this.click.bind(this)
+    this.context.canvas.addEventListener('mousemove', this.pointerBind)
+    this.context.canvas.addEventListener('click', this.clickBind)
   }
 
   public dispose() {
     this.animator.stop()
+    this.context.canvas.removeEventListener('mousemove', this.pointerBind)
+    this.context.canvas.removeEventListener('click', this.clickBind)
   }
 
   public setFlat(objectsData: ObjectsData) {
@@ -57,8 +70,9 @@ export class PlanSetup {
     this.highlighted = value
   }
 
-  public drawPlanItem(item: IPlanItem) {
-    const { context, strokeColor, highlightedColor, highlighted } = this
+  private drawPlanItem(item: IPlanItem) {
+    const { context, strokeColor, highlightedColor, highlighted, pointer } =
+      this
     if (item.alias === 'room') {
       const { points, name } = item as IPlanItemRoom
       const path = new Path2D()
@@ -74,6 +88,9 @@ export class PlanSetup {
       }
 
       context.stroke(path)
+      if (context.isPointInPath(path, pointer.x, pointer.y)) {
+        this.roomOver = name
+      }
     }
     if (item.alias === 'camera') {
       const {
@@ -107,11 +124,28 @@ export class PlanSetup {
   private redraw() {
     const { context, planItems } = this
 
+    this.roomOver = ''
+
     context.clearRect(0, 0, context.canvas.width, context.canvas.height)
     context.lineWidth = 2
 
     planItems.forEach((item) => {
       this.drawPlanItem(item)
     })
+  }
+
+  private pointerMove(e: MouseEvent) {
+    const {
+      context: { canvas }
+    } = this
+    const rect = canvas.getBoundingClientRect()
+    this.pointer = { x: e.clientX - rect.left, y: e.clientY - rect.top }
+  }
+
+  private click() {
+    if (!this.roomOver) {
+      return
+    }
+    this.clickCallback(this.roomOver)
   }
 }

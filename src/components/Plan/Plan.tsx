@@ -12,13 +12,15 @@ type PlanProps = {
   selected: string
   data: AppData
   animationContext: AnimationContext
+  roomClick: (name: string) => void
 }
 
 export const Plan: React.FC<PlanProps> = ({
   className,
   data,
   selected,
-  animationContext
+  animationContext,
+  roomClick
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
@@ -38,7 +40,7 @@ export const Plan: React.FC<PlanProps> = ({
     }
     canvas.width = canvas.offsetWidth
     canvas.height = canvas.offsetHeight
-    const planSetup = new PlanSetup(ctx, animationContext)
+    const planSetup = new PlanSetup(ctx, animationContext, roomClick)
     planSetup.setFlat(data.objectsData)
     planSetup.setHighlighted(selected)
     setPlan(planSetup)
