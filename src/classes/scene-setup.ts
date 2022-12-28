@@ -23,7 +23,7 @@ export class SceneSetup {
 
   private readonly animator: Animator = new Animator()
 
-  private center?: Vector3
+  private center: Vector3 = new Vector3()
 
   private flat?: IFlat
 
@@ -86,7 +86,12 @@ export class SceneSetup {
     }
     camera.setFocalLength(20)
     const cameraPos = selectedRoom.camera.position
-    camera.position.copy(cameraPos).add(new Vector3(0.1, 0.1, 0.1))
+    const bestDirection = cameraPos
+      .clone()
+      .sub(this.center)
+      .normalize()
+      .multiplyScalar(0.1)
+    camera.position.copy(cameraPos).add(bestDirection)
     controls.rotateSpeed = 2
     controls.minDistance = 0
     controls.target.copy(cameraPos)
