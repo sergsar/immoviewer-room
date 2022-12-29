@@ -14,7 +14,7 @@ export class PlanSetup {
   private readonly strokeColor = 'rgba(255, 255, 255, 1)'
 
   private readonly animator: Animator = new Animator()
-  private readonly pointerBind: (e: MouseEvent) => void
+
   private readonly clickBind: (e: MouseEvent) => void
 
   private pointer: IPoint2D = { x: 0, y: 0 }
@@ -26,15 +26,13 @@ export class PlanSetup {
   ) {
     this.animator.callback = this.redraw.bind(this)
     this.animator.start()
-    this.pointerBind = this.pointerMove.bind(this)
+
     this.clickBind = this.click.bind(this)
-    this.context.canvas.addEventListener('mousemove', this.pointerBind)
     this.context.canvas.addEventListener('click', this.clickBind)
   }
 
   public dispose() {
     this.animator.stop()
-    this.context.canvas.removeEventListener('mousemove', this.pointerBind)
     this.context.canvas.removeEventListener('click', this.clickBind)
   }
 
@@ -134,18 +132,17 @@ export class PlanSetup {
     })
   }
 
-  private pointerMove(e: MouseEvent) {
+  private click(e: MouseEvent) {
     const {
       context: { canvas }
     } = this
     const rect = canvas.getBoundingClientRect()
     this.pointer = { x: e.clientX - rect.left, y: e.clientY - rect.top }
-  }
-
-  private click() {
-    if (!this.roomOver) {
-      return
-    }
-    this.clickCallback(this.roomOver)
+    setTimeout(() => {
+      if (!this.roomOver) {
+        return
+      }
+      this.clickCallback(this.roomOver)
+    }, 10)
   }
 }

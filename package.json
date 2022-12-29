@@ -61,7 +61,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "start": "webpack serve --hot --mode development --node-env=development",
+    "start": "webpack serve --hot --mode development --node-env=development --host=0.0.0.0",
     "build": "webpack --mode production --node-env=production",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,json}'",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
