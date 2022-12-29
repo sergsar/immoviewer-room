@@ -35,7 +35,9 @@ export const buildFlat = (
   roomsData.forEach(({ corners, interiorCorners, roomName }) => {
     const roomsContent = Object.values(tourRooms)
     const camera = cameras.find((item) => item.roomName === roomName)
-    const fileName = roomsContent.find((item) => item.name === roomName)?.url
+    const fileName = roomsContent.find(
+      (item) => item.name === roomName
+    )?.filename
     const interiorPoints = getPoints(interiorCorners)
     const exteriorPoints = getPoints(corners)
 
@@ -44,7 +46,7 @@ export const buildFlat = (
       console.error(`insufficient data for room ${roomName}`)
       return
     }
-    const map = textureLoader.load(fileName)
+    const map = textureLoader.load(`images/${fileName}`)
     const cameraPos = new Vector3(-camera.x, 0, -camera.y).multiplyScalar(
       WORLD_MLT
     )
