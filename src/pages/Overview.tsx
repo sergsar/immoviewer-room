@@ -8,6 +8,7 @@ import { RoomsList } from '../components/RoomList/RoomsList'
 import { Scene } from '../components/Scene/Scene'
 import { TOP_VIEW } from '../consts/names'
 import { useApData } from '../hooks/use-ap-data'
+import pkg from '../../package.json'
 
 export const Overview: React.FC = () => {
   const [roomName, setRoomName] = useState('')
@@ -28,19 +29,24 @@ export const Overview: React.FC = () => {
       {data && (
         <>
           <div className="view">
-            <div className="buttons">
+            <div className="navigation">
               <RoomsList
                 data={data.contentData}
                 roomClick={setRoomName}
                 selected={roomName}
               />
-              <a
-                href="https://github.com/sergsar/immoviewer-room"
-                target="_blank"
-                rel="noreferrer"
-              >
-                https://github.com/sergsar/immoviewer-room
-              </a>
+              <div className="info-container">
+                <a className="description">{pkg.description}</a>
+                <a
+                  className="url"
+                  href={pkg.repository}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={pkg.repository}
+                >
+                  {pkg.repository}
+                </a>
+              </div>
             </div>
             {roomName !== TOP_VIEW && (
               <Plan

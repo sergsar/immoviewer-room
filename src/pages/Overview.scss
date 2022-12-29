@@ -3,6 +3,13 @@
   position: relative;
   text-align: center;
   height: 100%;
+  .info-container {
+    display: flex;
+    gap: 32px;
+    flex: 2;
+    place-content: space-between;
+    overflow: hidden;
+  }
   .scene {
     position: absolute;
   }
@@ -21,12 +28,22 @@
     margin-top: auto;
     background: rgba(0, 0, 0, 0.5);
   }
-  [href] {
+  .url {
     text-decoration: underline;
     color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
-  .buttons {
+  .description {
+    color: white;
+    font-weight: 700;
+    margin: auto;
+    white-space: nowrap;
+  }
+  .navigation {
     display: flex;
+    gap: 32px;
     align-items: center;
     width: 100%;
     place-content: space-between;
@@ -35,13 +52,18 @@
     background: rgba(0, 0, 0, 0.5);
   }
   @media(max-width: 900px) {
-    .buttons {
+    .navigation {
       gap: 8px;
       flex-direction: column-reverse;
     }
     .plan {
       width: 150px;
       height: 150px;
+    }
+    .info-container {
+      flex: 1;
+      gap: unset;
+      flex-direction: column;
     }
   }
 }
