@@ -1,3 +1,6 @@
+import './Scene.scss'
+
+import clsx from 'clsx'
 import React, { useEffect, useRef, useState } from 'react'
 
 import { AnimationContext } from '../../classes/animation-context'
@@ -18,6 +21,7 @@ export const Scene: React.FC<SceneProps> = ({
   animationContext,
   className
 }) => {
+  const [loading, setLoading] = useState<boolean>()
   const [scene, setScene] = useState<SceneSetup | null>()
 
   const canvasRef = useRef(null)
@@ -34,7 +38,9 @@ export const Scene: React.FC<SceneProps> = ({
       return
     }
     const threeScene = new SceneSetup(canvas, animationContext)
-    const flat = buildFlat(objectsData, contentData)
+    const flat = buildFlat(objectsData, contentData, (loading: boolean) =>
+      setLoading(loading)
+    )
     threeScene.setFlat(flat)
     threeScene.switchCamera(selected)
     setScene(threeScene)
@@ -54,7 +60,8 @@ export const Scene: React.FC<SceneProps> = ({
   }, [])
 
   return (
-    <div className={className}>
+    <div className={clsx('room-demo-scene', className)}>
+      {loading && <div className="preloader">...loading scene</div>}
       <canvas
         style={{
           width: '100%',

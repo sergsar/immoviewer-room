@@ -79,6 +79,7 @@ export class PlanSetup {
         path.lineTo(coordinate.x, coordinate.y)
       })
       path.closePath()
+      context.globalCompositeOperation = 'source-over'
       context.strokeStyle = strokeColor
       if (name === highlighted) {
         context.fillStyle = highlightedColor

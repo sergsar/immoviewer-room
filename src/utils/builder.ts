@@ -8,6 +8,7 @@ import {
   Vector3
 } from 'three'
 
+import { Loader } from '../classes/loader'
 import { WORLD_MLT } from '../consts/multipliers'
 import { ContentData, Tour, TourRooms } from '../contracts/content-data'
 import { ObjectsData } from '../contracts/objects-data'
@@ -19,8 +20,10 @@ import { buildExteriorGeometry, buildGeometry } from './geometry-builder'
 
 export const buildFlat = (
   { rooms: roomsData = [], cameras }: ObjectsData,
-  { tour: { rooms: tourRooms = {} as TourRooms } = {} as Tour }: ContentData
+  { tour: { rooms: tourRooms = {} as TourRooms } = {} as Tour }: ContentData,
+  onLoad?: (loading: boolean) => void
 ): IFlat => {
+  const loader = new Loader(onLoad)
   const textureLoader = new TextureLoader()
   textureLoader.crossOrigin = 'Anonymous'
   const rooms: IRoom[] = []
@@ -46,7 +49,11 @@ export const buildFlat = (
       console.error(`insufficient data for room ${roomName}`)
       return
     }
-    const map = textureLoader.load(`images/${fileName}`)
+
+    const [map, id] = loader.load(() =>
+      textureLoader.load(`images/${fileName}`, () => loader.complete(id))
+    )
+
     const cameraPos = new Vector3(-camera.x, 0, -camera.y).multiplyScalar(
       WORLD_MLT
     )
