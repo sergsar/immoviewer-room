@@ -22,6 +22,7 @@ export class SceneSetup {
   private readonly controls: OrbitControls
 
   private readonly animator: Animator = new Animator()
+  private isPlaying?: boolean
 
   private center: Vector3 = new Vector3()
 
@@ -66,6 +67,10 @@ export class SceneSetup {
     this.animator.stop()
     window.removeEventListener('resize', this.resizeBind)
     this.renderer.dispose()
+  }
+
+  public play(state?: boolean) {
+    this.isPlaying = !!state
   }
 
   public switchCamera(name: string) {
@@ -118,6 +123,9 @@ export class SceneSetup {
   }
 
   private animate() {
+    if (!this.isPlaying) {
+      return
+    }
     this.renderer.render(this.scene, this.camera)
     const cameraDirection = this.camera.getWorldDirection(
       this.controls.target.clone()

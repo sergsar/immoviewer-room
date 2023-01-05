@@ -2,16 +2,17 @@ import './Overview.scss'
 
 import React, { useEffect, useMemo, useState } from 'react'
 
+import pkg from '../../package.json'
 import { AnimationContext } from '../classes/animation-context'
 import { Plan } from '../components/Plan/Plan'
 import { RoomsList } from '../components/RoomList/RoomsList'
 import { Scene } from '../components/Scene/Scene'
 import { TOP_VIEW } from '../consts/names'
 import { useApData } from '../hooks/use-ap-data'
-import pkg from '../../package.json'
 
 export const Overview: React.FC = () => {
   const [roomName, setRoomName] = useState('')
+  const [sceneLoading, setSceneLoading] = useState<boolean>()
 
   const { data } = useApData()
 
@@ -26,6 +27,7 @@ export const Overview: React.FC = () => {
 
   return (
     <div className="room-demo-overview">
+      {(!data || sceneLoading) && <div className="preloader">...loading</div>}
       {data && (
         <>
           <div className="view">
@@ -34,6 +36,7 @@ export const Overview: React.FC = () => {
                 data={data.contentData}
                 roomClick={setRoomName}
                 selected={roomName}
+                disabled={sceneLoading}
               />
               <div className="info-container">
                 <a className="description">{pkg.description}</a>
@@ -48,7 +51,7 @@ export const Overview: React.FC = () => {
                 </a>
               </div>
             </div>
-            {roomName !== TOP_VIEW && (
+            {!(sceneLoading || roomName === TOP_VIEW) && (
               <Plan
                 data={data}
                 selected={roomName}
@@ -63,6 +66,7 @@ export const Overview: React.FC = () => {
             selected={roomName}
             animationContext={animationContext}
             className="scene"
+            onLoadingState={setSceneLoading}
           />
         </>
       )}

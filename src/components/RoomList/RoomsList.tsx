@@ -11,13 +11,15 @@ type RoomsListProps = {
   selected: string
   className?: string
   roomClick: (name: string) => void
+  disabled?: boolean
 }
 
 export const RoomsList: React.FC<RoomsListProps> = ({
   data,
   roomClick,
   selected,
-  className
+  className,
+  disabled
 }) => {
   const rooms = useMemo(() => {
     const { tour: { rooms = {} } = {} } = data
@@ -26,6 +28,7 @@ export const RoomsList: React.FC<RoomsListProps> = ({
   return (
     <div className={clsx('room-demo-room-list', className)}>
       <button
+        disabled={disabled}
         onClick={() => roomClick(TOP_VIEW)}
         className={clsx(
           'room-list-button',
@@ -37,6 +40,7 @@ export const RoomsList: React.FC<RoomsListProps> = ({
       </button>
       {rooms.map(({ name }) => (
         <button
+          disabled={disabled}
           className={clsx('room-list-button', selected === name && 'selected')}
           key={name}
           onClick={() => roomClick(name)}

@@ -15,5 +15,9 @@
         &.selected {
             border: 2px solid blue;
         }
+        &:disabled {
+            color: gray;
+            border: none;
+        }
     }
 }

@@ -13,15 +13,16 @@ type SceneProps = {
   selected: string
   className: string
   animationContext: AnimationContext
+  onLoadingState: (state: boolean) => void
 }
 
 export const Scene: React.FC<SceneProps> = ({
   data,
   selected,
   animationContext,
-  className
+  className,
+  onLoadingState
 }) => {
-  const [loading, setLoading] = useState<boolean>()
   const [scene, setScene] = useState<SceneSetup | null>()
 
   const canvasRef = useRef(null)
@@ -38,9 +39,10 @@ export const Scene: React.FC<SceneProps> = ({
       return
     }
     const threeScene = new SceneSetup(canvas, animationContext)
-    const flat = buildFlat(objectsData, contentData, (loading: boolean) =>
-      setLoading(loading)
-    )
+    const flat = buildFlat(objectsData, contentData, (loading: boolean) => {
+      onLoadingState(loading)
+      threeScene.play(!loading)
+    })
     threeScene.setFlat(flat)
     threeScene.switchCamera(selected)
     setScene(threeScene)
@@ -61,7 +63,6 @@ export const Scene: React.FC<SceneProps> = ({
 
   return (
     <div className={clsx('room-demo-scene', className)}>
-      {loading && <div className="preloader">...loading scene</div>}
       <canvas
         style={{
           width: '100%',

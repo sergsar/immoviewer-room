@@ -21,9 +21,9 @@ import { buildExteriorGeometry, buildGeometry } from './geometry-builder'
 export const buildFlat = (
   { rooms: roomsData = [], cameras }: ObjectsData,
   { tour: { rooms: tourRooms = {} as TourRooms } = {} as Tour }: ContentData,
-  onLoad?: (loading: boolean) => void
+  onLoadChanges?: (loading: boolean) => void
 ): IFlat => {
-  const loader = new Loader(onLoad)
+  const loader = new Loader(onLoadChanges)
   const textureLoader = new TextureLoader()
   textureLoader.crossOrigin = 'Anonymous'
   const rooms: IRoom[] = []
