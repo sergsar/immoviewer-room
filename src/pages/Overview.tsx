@@ -12,7 +12,7 @@ import { useApData } from '../hooks/use-ap-data'
 
 export const Overview: React.FC = () => {
   const [roomName, setRoomName] = useState('')
-  const [sceneLoading, setSceneLoading] = useState<boolean>()
+  const [sceneLoading, setSceneLoading] = useState<boolean>(true)
 
   const { data } = useApData()
 
